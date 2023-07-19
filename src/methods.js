@@ -14,7 +14,7 @@ export default function Methods() {
     useEffect(() => {
         // liff.init(
         //     {
-        //         liffId: "1650000000", // liffId
+        //         liffId: "2000174578-VrlmbbrB", // liffId
         //         withLoginOnExternalBrowser: true // 外部ブラウザ 
         //     }
         // ).then(() => {
