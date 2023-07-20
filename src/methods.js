@@ -1,10 +1,11 @@
 import React, { useEffect , useState } from 'react'
 import liff from '@line/liff';
 import Send from "./Methods/send"
+import Convert from "./Methods/convert"
 
 function getMethods() {
 
-    return [<Send liff={liff}/>];
+    return [<Send liff={liff}/>, <Convert liff={liff}/>];
 }
 
 let method = getMethods();
