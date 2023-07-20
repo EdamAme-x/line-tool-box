@@ -139,3 +139,15 @@ body {
   font-size: 0.8rem;
   margin: 10px;
 }
+
+.macro-input {
+  width: 50% !important;
+}
+
+.macro-input-num {
+  width: 25%;
+}
+
+.macro-btn {
+  width: 100% !important;
+}

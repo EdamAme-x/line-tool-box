@@ -8,6 +8,9 @@ export default function Send(props) {
     RawText: "",
     RangeText: "",
     RangeNum: "3",
+    MacroText: "hi!",
+    MacroNum: "3",
+    MacroInterval: "1000",
   });
 
   function sendText() {
@@ -38,6 +41,25 @@ export default function Send(props) {
 
   function sendTextJSON() {
     liff.sendMessages(JSON.parse(data));
+  }
+
+  function sendMacro() {
+    setInterval(() => {
+      if (!(parseInt(data.MacroNum) >= 1 && parseInt(data.MacroNum) <= 5)) {
+        return alert("1~5で入力してください。");
+      }
+
+      let msg = [];
+
+      for (let i = 0; i < parseInt(data.MacroNum); i++) {
+        msg.push({
+          type: "text",
+          text: data.MacroText,
+        })
+      }
+
+      liff.sendMessages(msg);
+    }, parseInt(data.MacroInterval));
   }
 
   return (
@@ -74,6 +96,30 @@ export default function Send(props) {
         onInput={(e) => setData({ ...data, RawText: e.target.value })}
       />
       <button onClick={sendTextJSON}>Send</button>
+      <t>マクロ</t>
+      <input
+        type="text"
+        placeholder="text"
+        className="macro-input"
+        value={data.MacroText}
+        onInput={(e) => setData({ ...data, MacroText: e.target.value })}
+      />
+      <input
+        type="number"
+        placeholder="1~5"
+        className="macro-input-num"
+        value={data.MacroNum}
+        onInput={(e) => setData({ ...data, MacroNum: e.target.value })}
+      />
+      <input
+        type="number"
+        placeholder="1000"
+        className="macro-input-num"
+        value={data.MacroInterval}
+        onInput={(e) => setData({ ...data, MacroInterval: e.target.value })}
+      />
+      <button onClick={sendMacro} className="macro-btn">Send</button>
+
     </div>
   );
 }
