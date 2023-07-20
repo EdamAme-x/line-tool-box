@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect , useState } from 'react'
 import liff from '@line/liff';
 import Send from "./Methods/send"
 
 function getMethods() {
 
-    return [<Send />];
+    return [<Send liff={liff}/>];
 }
 
 let method = getMethods();
@@ -15,15 +15,26 @@ export default function Methods() {
         liff.init(
             {
                 liffId: "2000174578-VrlmbbrB", // liffId
-                withLoginOnExternalBrowser: true // 外部ブラウザ 
+                withLoginOnExternalBrowser: false // 外部ブラウザ ログイン
             }
         ).then(() => {
-           alert("success")
+            setStatus({
+                ok: "Success"
+            })
+        }).catch((err) => {
+            alert("error: " + err);  
         })
     }, [])
 
+    let [Status, setStatus] = useState({
+        ok: "Failed | Error",
+    })
+
     return (
         <>
+            <div className='card'>
+                Status: {Status.ok}
+            </div>
             {
                 method.map(
                     (item, index) => (

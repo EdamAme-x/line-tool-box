@@ -13,10 +13,10 @@ export default function Header() {
                 <h1 className='text-c1'>LINE-Tool-Box</h1>
             </div>
             <div className='flex icons'>
-                <a href='https://github.com/EdamAme-x/line-tool'>
+                <a href='https://github.com/EdamAme-x/line-tool-box?openExternalBrowser=1'>
                     <img src={GithubICon} width="22.5" alt="Icon" />
                 </a>
-                <a href='https://twitter.com/macl2189'>
+                <a href='https://twitter.com/macl2189?openExternalBrowser=1'>
                     <img src={TwitterIcon} width="22.5" alt="Icon" />
                 </a>
             </div>
