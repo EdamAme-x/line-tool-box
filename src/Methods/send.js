@@ -36,6 +36,10 @@ export default function Send(props) {
     liff.sendMessages(msg);
   }
 
+  function sendTextJSON() {
+    liff.sendMessages(JSON.parse(data));
+  }
+
   return (
     <div>
       <t>通常メッセージ送信</t>
@@ -62,6 +66,14 @@ export default function Send(props) {
         onInput={(e) => setData({ ...data, RangeNum: e.target.value })}
       />
       <button onClick={sendTextRange}>Send</button>
+      <t>JSONメッセージ( [{"{ }"},{"{ }"}...] )</t>
+      <input
+        type="text"
+        placeholder="[{ type: ~, ... }, { ... }...]"
+        value={data.RawText}
+        onInput={(e) => setData({ ...data, RawText: e.target.value })}
+      />
+      <button onClick={sendTextJSON}>Send</button>
     </div>
   );
 }
