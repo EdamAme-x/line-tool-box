@@ -1,4 +1,4 @@
-import React , { useState } from 'react'
+import React, { useState } from 'react'
 
 export default function Send(props) {
 
@@ -6,7 +6,7 @@ export default function Send(props) {
 
   let [data, setData] = useState({
     StaticText: "",
-    RawText: ""  
+    RawText: ""
   })
 
   function sendText() {
@@ -18,9 +18,9 @@ export default function Send(props) {
 
   return (
     <div>
-        通常メッセージ送信(ポリ無し) <br />
-        <input type="text" value={data.StaticText} onInput={(e) => setData({ ...data, StaticText: e.target.value })}/>
-        <button onClick={sendText}>Send</button>
+      <t>通常メッセージ送信</t>
+      <input type="text" placeholder='text' value={data.StaticText} onInput={(e) => setData({ ...data, StaticText: e.target.value })} />
+      <button onClick={sendText}>Send</button>
     </div>
   )
 }

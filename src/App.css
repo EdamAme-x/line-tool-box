@@ -90,3 +90,28 @@ body {
   background-color: #191c29;
   color: #f0f8ff;
 }
+
+.card input[type=text] {
+  width: 75%;
+}
+
+.card button {
+  width: 25%;
+  font-weight: bold;
+  color: #f0f8ff;
+  background-color: transparent;
+}
+
+.card input[type=text]:focus {
+  border: none;
+  outline: none;
+}
+
+.card t {
+  font-size: 0.9rem;
+  width: auto;
+  height: auto;
+  display: flex;
+  margin: 2px 0;
+  justify-content: center;
+}
