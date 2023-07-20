@@ -18,7 +18,7 @@ export default function Methods() {
         //         withLoginOnExternalBrowser: true // 外部ブラウザ 
         //     }
         // ).then(() => {
-        //    alert("LIFF | Success");   
+        //    alert("success")
         // })
     }, [])
 
