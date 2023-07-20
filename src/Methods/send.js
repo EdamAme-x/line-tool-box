@@ -69,7 +69,7 @@ export default function Send(props) {
       <t>JSONメッセージ( [{"{ }"},{"{ }"}...] )</t>
       <input
         type="text"
-        placeholder="[{ type: ~, ... }, { ... }...]"
+        placeholder="[{ type: ~ , ... }, { ... }...]"
         value={data.RawText}
         onInput={(e) => setData({ ...data, RawText: e.target.value })}
       />

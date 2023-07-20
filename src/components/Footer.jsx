@@ -1,16 +1,13 @@
 import React from 'react'
-import BoxIcon from "./static/box-icon.png";
-import GithubICon from "./static/github.svg";
-import TwitterIcon from "./static/twitter.svg";
+import GithubICon from "../static/github.svg";
+import TwitterIcon from "../static/twitter.svg";
 
 export default function Header() {
     return (
-        <div className='header flex'>
-            <div className='flex'>
-                <a href="/">
-                    <img src={BoxIcon} width="0" className='header-icon' alt="Icon" />
-                </a>
-                <h1 className='text-c1'>LINE-Tool-Box</h1>
+        <div className='footer flex'>
+            <div>
+                <p>&copy; 2023~ ame-x / @macl2189</p>
+                <p>All rights reserved.</p>
             </div>
             <div className='flex icons'>
                 <a href='https://github.com/EdamAme-x/line-tool-box?openExternalBrowser=1'>
