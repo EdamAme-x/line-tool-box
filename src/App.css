@@ -42,6 +42,20 @@ body {
   margin-top: 15px;
 }
 
+.text-c2 {
+  font-size: 0.8rem;
+  width: 100%;
+  text-align: center;
+}
+
+.text-c2 > button {
+  color: #f0f8ff;
+  margin: 0 2px;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+}
+
 .icons {
   width: auto;
   height: auto;
@@ -54,4 +68,25 @@ body {
   margin-left: 7.5px;
   margin-right: 7.5px;
   /* padding: 5px; */
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 75vw;
+  height: 60vh;
+  box-shadow: #191c29 0px 0px 10px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  background-color: #2B3146;
+  font-size: 0.85rem;
+}
+
+.close {
+  width: calc(75vw - 20px);
+  margin-top: 10px;
+  border-radius: 9999px;
+  background-color: #191c29;
+  color: #f0f8ff;
 }
