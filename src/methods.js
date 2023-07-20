@@ -12,10 +12,15 @@ let method = getMethods();
 export default function Methods() {
 
     useEffect(() => {
+        let withDev = true;
+        if ("lcoalhost".indexOf(window.location.href)) {
+            withDev = false;
+        }
+
         liff.init(
             {
                 liffId: "2000174578-VrlmbbrB", // liffId
-                withLoginOnExternalBrowser: false // 外部ブラウザ ログイン
+                withLoginOnExternalBrowser: withDev // 外部ブラウザ ログイン
             }
         ).then(() => {
             setStatus({
