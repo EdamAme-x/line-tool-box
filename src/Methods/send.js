@@ -20,6 +20,11 @@ export default function Send(props) {
   }
 
   function sendTextRange() {
+
+    if (!(parseInt(data.RangeNum) >= 1 && parseInt(data.RangeNum) <= 5)) {
+      return alert("1~5で入力してください。");
+    }
+
     let msg = [];
 
     for (let i = 0; i < parseInt(data.RangeNum); i++) {
