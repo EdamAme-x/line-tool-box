@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function Convert(props) {
-
     const liff = props.liff;
 
     let [data, setData] = useState({
@@ -9,30 +8,28 @@ export default function Convert(props) {
         ReportLink: "",
         ShareText: "",
         ShareLink: "",
-    })
-
+    });
 
     function convertReport() {
         let link = data.OCLink;
         if (link.replace("ti/g2", "0000") !== link) {
             link = link.split("/");
             link = "line://square/report?ticket=" + link[link.length - 1].replace("?utm_source=invitation&utm_medium=link_copy&utm_campaign=default", "&by=amex-@macl2189");
-            setData({ ...data, ReportLink: link })
+            setData({ ...data, ReportLink: link });
         } else {
-            alert("URLの形式がおかしいです。")
+            alert("URLの形式がおかしいです。");
         }
     }
 
     function createShareLink() {
-        let share_link= "line://share?text=" + encodeURIComponent(data.ShareText);
-        setData({ ...data, ShareLink: share_link})
+        let shareText = data.ShareText.replace(/\n/g, '!kaigyo!'); // 改行をエンコード
+        let shareLink = "line://share?text=" + encodeURIComponent(shareText).replace("!kaigyo!", "%0A");
+        setData({ ...data, ShareLink: shareLink });
     }
 
     return (
         <div>
-            <t>
-                OC通報Url 作成
-            </t>
+            <t>OC通報Url 作成</t>
             <t>
                 <input
                     type="text"
@@ -41,11 +38,9 @@ export default function Convert(props) {
                     onChange={(e) => setData({ ...data, OCLink: e.target.value })}
                 />
             </t>
-
             <t>
                 <button onClick={convertReport}>Convert</button>
             </t>
-
             <t>
                 <input
                     type="text"
@@ -54,24 +49,20 @@ export default function Convert(props) {
                     onChange={(e) => setData({ ...data, ReportLink: e.target.value })}
                 />
             </t>
-
             <t className="text-c3">
                 テキスト共有リンク作成
             </t>
-
             <t>
-                <input
+                <textarea
                     type="text"
                     placeholder='ShareText'
                     value={data.ShareText}
                     onChange={(e) => setData({ ...data, ShareText: e.target.value })}
                 />
             </t>
-
             <t>
                 <button onClick={createShareLink}>Create</button>
             </t>
-
             <t>
                 <input
                     type="text"
@@ -80,8 +71,6 @@ export default function Convert(props) {
                     onChange={(e) => setData({ ...data, ShareLink: e.target.value })}
                 />
             </t>
-
         </div>
-    )
+    );
 }
-

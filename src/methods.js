@@ -1,11 +1,16 @@
-import React, { useEffect , useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import liff from '@line/liff';
 import Send from "./Methods/send"
 import Convert from "./Methods/convert"
+import Share from "./Methods/share"
 
 function getMethods() {
 
-    return [<Send liff={liff}/>, <Convert liff={liff}/>];
+    return [
+        <Send liff={liff} />,
+        <Convert liff={liff} />,
+        <Share liff={liff} />
+    ];
 }
 
 let method = getMethods();
@@ -28,7 +33,7 @@ export default function Methods() {
                 ok: "Success"
             })
         }).catch((err) => {
-            alert("error: " + err);  
+            alert("error: " + err);
         })
     }, [])
 
@@ -39,7 +44,9 @@ export default function Methods() {
     return (
         <>
             <div className='card'>
-                Status: {Status.ok}
+                <t>
+                    Status: {Status.ok}
+                </t>
             </div>
             {
                 method.map(
