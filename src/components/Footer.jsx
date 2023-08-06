@@ -22,7 +22,7 @@ export default function Header() {
                     <img src={TwitterIcon} width="22.5" alt="Icon" />
                 </a>
                 {
-                    admin && <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.4.3/eruda.min.js">{"eruda.init()"}</script>
+                    admin && <><script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.4.3/eruda.min.js"></script><script>{"eruda.init(); alert('boot')"}</script></>
                 }
             </div>
         </div>
