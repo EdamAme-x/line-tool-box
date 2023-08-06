@@ -40,7 +40,7 @@ export default function Send(props) {
   }
 
   function sendTextJSON() {
-    liff.sendMessages(JSON.parse(data));
+    liff.sendMessages(JSON.parse(data.RawText));
   }
 
   function sendMacro() {
