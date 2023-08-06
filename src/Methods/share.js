@@ -8,6 +8,10 @@ export default function Share(props) {
         ShareText: "",
     })
 
+    function exeShare() {
+        window.location.href = "line://share?text=" + data.ShareLink;
+    }
+
 
     return (
         <div>
@@ -16,12 +20,16 @@ export default function Share(props) {
             </t>
 
             <t>
-                <t
+                <input
                     type="text"
-                    placeholder='url'
+                    placeholder='text | url'
                     value={data.ShareText}
                     onChange={(e) => setData({ ...data, ShareText: e.target.value })}
                 />
+            </t>
+
+            <t>
+                <button onClick={exeShare}>Share</button>
             </t>
         </div>
     )
