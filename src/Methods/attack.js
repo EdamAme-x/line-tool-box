@@ -10,7 +10,7 @@ export default function Send(props) {
     function sendFlexUnicode() {
         console.log("atk!")
 
-        let unicode = `\\n`.repeat(10000);
+        let unicode = `\\n`.repeat(parseInt(prompt("強さ: ~1000")));
 
         let flex_obj = `{
             "type": "flex",
