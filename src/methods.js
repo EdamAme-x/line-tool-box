@@ -64,6 +64,9 @@ export default function Methods() {
                 <t>
                     Status: {Status.ok}
                 </t>
+                <t>
+                    SupportOC: <button onCLick={() => { liff.openSettings() }}>Join</button>
+                </t>
             </div>
             {
                 method.map(
@@ -85,7 +88,7 @@ export default function Methods() {
                     <p class="descs">flex ユニコマクロ機能</p>
                     <p class="descs">ExpressSender機能</p>
                     <p class="descs">Token機能</p>
-                    <br/>
+                    <br />
                     <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
                     <p class="descs">もしかしたら Beta版が使えたりするかも・・・</p>
                     <button class="cm" onClick={() => {

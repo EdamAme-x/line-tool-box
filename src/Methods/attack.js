@@ -97,7 +97,8 @@ export default function Send(props) {
             <div>
                 <t>改行 Destroy α</t>
                 <t class="desc">長いflexメッセージを出力します。</t>
-                <t class="desc">ユニコ流しや連投にどうぞ</t>
+                <t class="desc">ユニコ流しや 会話流しにどうぞ</t>
+                <t class="desc">上までスクロールするのにとんでもない時間がかかるでしょう。</t>
                 1個: <button onClick={() => { sendFlexUnicode("", parseInt(prompt("強さ ~10000"))) }}>Send</button>
                 マクロ: <button onClick={() => { sendFlexUnicode("macro", parseInt(prompt("強さ ~10000"))) }}>Send</button> <br />
                 <t>ExpressSender</t>
