@@ -22,6 +22,8 @@ export default function Send(props) {
                 "contents": [
                   {
                     "type": "text",
+                    "weight": "bold",
+                    "wrap": true,
                     "text": "Hello, World!"
                   }
                 ]
