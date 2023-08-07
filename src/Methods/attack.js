@@ -92,8 +92,8 @@ export default function Send(props) {
                 },
               ],
             },
-          };
-        `;          
+          }
+        `;
 
         const auth = "Bearer " + liff.getAccessToken();
         const msg_obj = JSON.parse(flex_obj);
