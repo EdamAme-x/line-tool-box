@@ -64,6 +64,25 @@ export default function Methods() {
                     )
                 )
             }
+            <div className='card'>
+                <t>Info</t>
+                {
+                    (() => {
+                        let withDev = true;
+
+                        if (window.location.href.indexOf("localhost") !== -1) {
+                            withDev = false;
+                        }
+
+                        if (withDev) {
+                            return "WithDev";
+                        } else {
+                            return "WithDevError";
+                        }
+
+                    })()
+                }
+            </div>
         </>
     )
 }

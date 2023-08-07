@@ -97,32 +97,6 @@ export default function Send(props) {
                     <button onClick={() => { expressSend() }}>Send</button>
                 </t>
             </div>
-
-            <div><br />
-                <t>Info</t>
-                {
-                    (() => {
-                        let withDev = true;
-
-                        if (window.location.href.indexOf("localhost") !== -1) {
-                            withDev = false;
-                        }
-
-                        if (withDev) {
-                            function isUse(value) {
-                                if (typeof value === undefined || value === null) {
-                                    return "false";
-                                }
-                                return value;
-                            }
-                            return isUse(liff.getAccessToken());
-                        } else {
-                            return "WithDevError";
-                        }
-
-                    })()
-                }
-            </div>
         </>
     );
 }
