@@ -29,7 +29,7 @@ export default function Send(props) {
 
     function expressSend() {
 
-        let auth = ``
+        let auth = "Bearer " + liff.getAccessToken()
         //'Bearer eyJhbGciOiJIUzI1NiJ9.v5cZDYQEMNEIqGJZ-DE-k2CN2S00cXyaKQr6jHKuIlJSEQZAdRjHXFUZU0vo2QfUK8ue_idZnXuPoSQ55p10OIWRbzwkVpmKTyUbwTYCLZZCrkfBbu9vn2WniomlgFQ.9jhkuO8iSfo2LDlR2dSPgKivO77HNP5dcG72L3RYSyA'
 
         let msg_obj = {
