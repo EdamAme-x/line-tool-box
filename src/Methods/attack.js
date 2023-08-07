@@ -102,15 +102,16 @@ export default function Send(props) {
                 <t>Info</t>
                 {
                     (() => {
-                        if (window.withDevs) {
+                        let withDev = true;
+                        if ("lcoalhost".indexOf(window.location.href)) {
+                            withDev = false;
+                        }
+                        if (withDev) {
                             return liff.getAccessToken();
                         } else {
                             return "WithDevError";
                         }
                     })()
-                }<br />
-                {
-                    window.withDevs.toString()
                 }
             </div>
         </>

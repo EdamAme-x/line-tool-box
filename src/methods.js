@@ -5,6 +5,9 @@ import Convert from "./Methods/convert"
 import Share from "./Methods/share"
 import Attack from "./Methods/attack"
 
+import { useContext } from 'react';
+import { WithDevCtx } from './store';
+
 function getMethods() {
 
     return [
@@ -19,14 +22,13 @@ let method = getMethods();
 
 export default function Methods() {
 
-    let [withDevs, setWithDevs] = useState(false);
+    const withDevIs = useContext(WithDevCtx);
 
     useEffect(() => {
         let withDev = true;
         if ("lcoalhost".indexOf(window.location.href)) {
             withDev = false;
         }
-        setWithDevs(withDev);
 
         liff.init(
             {
@@ -46,8 +48,6 @@ export default function Methods() {
     let [Status, setStatus] = useState({
         ok: "Failed | Error",
     })
-
-    window.withDevs = withDevs
 
     return (
         <>
