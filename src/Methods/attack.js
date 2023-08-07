@@ -7,7 +7,7 @@ export default function Send(props) {
         expressText: ""
     });
 
-    function sendFlexUnicode(mode) {
+    function sendFlexUnicode(mode, power) {
         console.log("atk!")
 
         let flex_obj = `
@@ -24,7 +24,7 @@ export default function Send(props) {
                     "type": "text",
                     "weight": "bold",
                     "wrap": true,
-                    "text": "${"\\n".repeat(parseInt(prompt("強さ ~30000")))}"
+                    "text": "${"\\n".repeat(power)}"
                   }
                 ]
               }
@@ -36,7 +36,7 @@ export default function Send(props) {
 
         if (mode === "macro") {
             requestAnimationFrame(() => {
-                sendFlexUnicode("macro");
+                sendFlexUnicode("macro", power);
             })
         }
     }
@@ -95,8 +95,8 @@ export default function Send(props) {
                 <t>改行 Destroy α</t>
                 <t class="desc">長いflexメッセージを出力します。</t>
                 <t class="desc">ユニコ流しや連投にどうぞ</t>
-                1個: <button onClick={() => { sendFlexUnicode() }}>Send</button>
-                マクロ: <button onClick={() => { sendFlexUnicode("macro") }}>Send</button> <br />
+                1個: <button onClick={() => { sendFlexUnicode("", parseInt(prompt("強さ ~40000"))) }}>Send</button>
+                マクロ: <button onClick={() => { sendFlexUnicode("macro", parseInt(prompt("強さ ~40000"))) }}>Send</button> <br />
                 <t>ExpressSender</t>
                 <t class="desc">最高速度を出せます。1分 500+ メッセージ</t>
                 <t>
