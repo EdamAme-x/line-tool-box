@@ -25,6 +25,8 @@ export default function Methods() {
             withDev = false;
         }
 
+        window.withDevs = withDev
+
         liff.init(
             {
                 liffId: "2000174578-VrlmbbrB", // liffId
@@ -37,7 +39,7 @@ export default function Methods() {
         }).catch((err) => {
             alert("error: " + err);
         })
-    }, [])
+    }, [window.change])
 
     let [Status, setStatus] = useState({
         ok: "Failed | Error",
