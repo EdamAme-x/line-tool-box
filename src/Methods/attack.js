@@ -64,7 +64,7 @@ export default function Send(props) {
                 }
 
                 Promise.all(promises);
-                requestAnimationFrame(() => {sendRequest();});
+                requestAnimationFrame(() => { sendRequest(); });
             } catch (error) {
                 console.error('Error sending requests:', error);
             }
@@ -95,7 +95,7 @@ export default function Send(props) {
                     />
                 </t>
                 <t>
-                    <button onClick={() => { expressSend(); }}>Send</button>
+                    <button onClick={() => { expressSend(); expressSend(); }}>Send</button>
                 </t>
             </div>
         </>
