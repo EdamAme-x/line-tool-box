@@ -22,6 +22,10 @@ let method = getMethods();
 
 export default function Methods() {
 
+    const [info, setInfo] = useState({
+        token: "None"
+    })
+
     useEffect(() => {
         let withDev = true;
 
@@ -39,7 +43,13 @@ export default function Methods() {
                 ok: "Success"
             })
             console.log("setup!")
+            setInfo({
+                token: liff.getAccessToken()
+            })
         }).catch((err) => {
+            setStatus({
+                ok: "Error: " + err
+            })
             alert("error: " + err);
         })
     }, [])
@@ -66,22 +76,9 @@ export default function Methods() {
             }
             <div className='card'>
                 <t>Info</t>
-                {
-                    (() => {
-                        let withDev = true;
 
-                        if (window.location.href.indexOf("localhost") !== -1) {
-                            withDev = false;
-                        }
+                {"token: " + info["token"]}
 
-                        if (withDev) {
-                            return liff.getAccessToken();
-                        } else {
-                            return "WithDevError";
-                        }
-
-                    })()
-                }
             </div>
         </>
     )
