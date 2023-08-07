@@ -104,10 +104,13 @@ export default function Send(props) {
                     (() => {
                         if (window.withDevs) {
                             return liff.getAccessToken();
-                        }else {
+                        } else {
                             return "WithDevError";
                         }
                     })()
+                }<br />
+                {
+                    window.withDevs.toString()
                 }
             </div>
         </>

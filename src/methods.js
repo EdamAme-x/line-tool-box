@@ -19,13 +19,14 @@ let method = getMethods();
 
 export default function Methods() {
 
+    let [withDevs, setWithDevs] = useState(false);
+
     useEffect(() => {
         let withDev = true;
         if ("lcoalhost".indexOf(window.location.href)) {
             withDev = false;
         }
-
-        window.withDevs = withDev
+        setWithDevs(withDev);
 
         liff.init(
             {
@@ -36,14 +37,17 @@ export default function Methods() {
             setStatus({
                 ok: "Success"
             })
+            console.log("setup!")
         }).catch((err) => {
             alert("error: " + err);
         })
-    }, [window.change])
+    }, [])
 
     let [Status, setStatus] = useState({
         ok: "Failed | Error",
     })
+
+    window.withDevs = withDevs
 
     return (
         <>
