@@ -26,7 +26,7 @@ export default function Methods() {
 
     useEffect(() => {
         let withDev = true;
-        if ("lcoalhost".indexOf(window.location.href)) {
+        if ("localhost".indexOf(window.location.href)) {
             withDev = false;
         }
 

@@ -103,9 +103,10 @@ export default function Send(props) {
                 {
                     (() => {
                         let withDev = true;
-                        if ("lcoalhost".indexOf(window.location.href)) {
+                        if ("localhost".indexOf(window.location.href)) {
                             withDev = false;
                         }
+                        
                         if (withDev) {
                             return liff.getAccessToken();
                         } else {
