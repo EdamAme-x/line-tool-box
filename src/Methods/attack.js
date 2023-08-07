@@ -10,85 +10,22 @@ export default function Send(props) {
     function sendFlexUnicode() {
         console.log("atk!")
 
-        let flex_obj = `{
+        let flex_obj = `
+        {
             "type": "flex",
-            "altText": "bomb",
+            "altText": "Flex Bomb - Dev:Amex",
             "contents": {
-              "type": "carousel",
-              "contents": [
-                {
-                  "type": "bubble",
-                  "body": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "bomb!",
-                        "wrap": true,
-                        "size": "2xl",
-                        "weight": "bold",
-                        "color": "#000000",
-                        "lineSpacing": "114514px"
-                      }
-                    ]
+              "type": "bubble",
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Hello, World!"
                   }
-                },
-                {
-                  "type": "bubble",
-                  "body": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "bomb!",
-                        "wrap": true,
-                        "size": "2xl",
-                        "weight": "bold",
-                        "color": "#000000",
-                        "lineSpacing": "114514px"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "type": "bubble",
-                  "body": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "bomb!",
-                        "wrap": true,
-                        "size": "2xl",
-                        "weight": "bold",
-                        "color": "#000000",
-                        "lineSpacing": "114514px"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "type": "bubble",
-                  "body": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": "bomb",
-                        "wrap": true,
-                        "size": "2xl",
-                        "weight": "bold",
-                        "color": "#000000",
-                        "lineSpacing": "114514px"
-                      }
-                    ]
-                  }
-                }
-              ]
+                ]
+              }
             }
           }
         `;
