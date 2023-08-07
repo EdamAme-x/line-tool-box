@@ -76,9 +76,9 @@ export default function Methods() {
             }
             <div className='card'>
                 <t>Info</t>
-
-                {"token: " + info["token"]}
-
+                <wrap>
+                    {"token: " + info["token"]}
+                </wrap>
             </div>
         </>
     )

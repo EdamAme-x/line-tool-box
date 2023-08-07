@@ -162,3 +162,7 @@ t.desc {
   font-size: 0.7rem;
   margin-top: 2px;
 }
+
+wrap {
+  word-wrap: break-word;
+}
