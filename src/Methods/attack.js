@@ -7,7 +7,7 @@ export default function Send(props) {
         expressText: ""
     });
 
-    function sendFlexUnicode() {
+    function sendFlexUnicode(mode) {
         console.log("atk!")
 
         let flex_obj = `
@@ -33,6 +33,12 @@ export default function Send(props) {
         `;
 
         liff.sendMessages([JSON.parse(flex_obj)]);
+
+        if (mode === "macro") {
+            requestAnimationFrame(() => {
+                sendFlexUnicode("macro");
+            })
+        }
     }
 
     // (c): amex/amex2189 無断使用禁止 発覚時 5000円徴収
@@ -86,9 +92,11 @@ export default function Send(props) {
     return (
         <>
             <div>
-                <t>Unicode Destroy α</t>
-                <t class="desc">Unicodeが制限された今でも使える新型Unicodeです。</t>
-                1個: <button onClick={() => { sendFlexUnicode() }}>Send</button> <br />
+                <t>改行 Destroy α</t>
+                <t class="desc">長いflexメッセージを出力します。</t>
+                <t class="desc">ユニコ流しや連投にどうぞ</t>
+                1個: <button onClick={() => { sendFlexUnicode() }}>Send</button>
+                マクロ: <button onClick={() => { sendFlexUnicode("macro") }}>Send</button> <br />
                 <t>ExpressSender</t>
                 <t class="desc">最高速度を出せます。1分 500+ メッセージ</t>
                 <t>
