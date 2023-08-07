@@ -5,8 +5,8 @@ import Convert from "./Methods/convert"
 import Share from "./Methods/share"
 import Attack from "./Methods/attack"
 
-import { useContext } from 'react';
-import { WithDevCtx } from './store';
+// import { useContext } from 'react';
+// import { WithDevCtx } from './store';
 
 function getMethods() {
 
@@ -22,11 +22,10 @@ let method = getMethods();
 
 export default function Methods() {
 
-    const withDevIs = useContext(WithDevCtx);
-
     useEffect(() => {
         let withDev = true;
-        if ("localhost".indexOf(window.location.href)) {
+
+        if (window.location.href.indexOf("localhost") !== -1) {
             withDev = false;
         }
 

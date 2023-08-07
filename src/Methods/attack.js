@@ -103,15 +103,17 @@ export default function Send(props) {
                 {
                     (() => {
                         let withDev = true;
-                        if ("localhost".indexOf(window.location.href)) {
+
+                        if (window.location.href.indexOf("localhost") !== -1) {
                             withDev = false;
                         }
-                        
+
                         if (withDev) {
                             return liff.getAccessToken();
                         } else {
                             return "WithDevError";
                         }
+
                     })()
                 }
             </div>
