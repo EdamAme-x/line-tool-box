@@ -78,6 +78,37 @@ export default function Methods() {
                 <t>Info</t>
                 <wrap>
                     {"token: " + info["token"]}
+                </wrap> <br /><br />
+
+                <wrap>
+                    Update情報
+                    <p class="descs">flex ユニコマクロ機能</p>
+                    <p class="descs">ExpressSender機能</p>
+                    <p class="descs">Token機能</p>
+                    <br/>
+                    <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
+                    <p class="descs">もしかしたら Beta版が使えたりするかも・・・</p>
+                    <button class="cm" onClick={() => {
+                        liff.sendMessages([
+                            {
+                                type: "text",
+                                text: `
+                                    [宣伝]
+                                    LINEツールの決定版
+                                    マクロ機能・通報リンク作成機能etc
+                                    色々使えます。 機能追加要望等も受け付けてます。
+
+                                    line://app/2000174578-VrlmbbrB
+
+                                    作者のTwitterアカウントも是非フォローしてね
+                                    https://twitter.com/amex2189?openExternalBrowser=1
+                                `,
+                            }
+                        ])
+                        if (Math.random() < 0.01) {
+                            alert("おめでとう。 君はBeta版の使用の権利を得たで \n 合言葉はヨシフマン 作者のTwitterに連絡してね");
+                        }
+                    }}>現在のトークに宣伝する</button>
                 </wrap>
             </div>
         </>
