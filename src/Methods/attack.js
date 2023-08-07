@@ -15,7 +15,8 @@ export default function Send(props) {
 
     let unicode1 = "";
 
-    for (let i = 0;i < parseInt(prompt("長さ ~2500"));i++) {
+    let num = parseInt(prompt("長さ ~2500"));
+    for (let i = 0;i < num;i++) {
         unicode1 += decodeURIComponent("%D9%8B%D9%99");
     }
 
