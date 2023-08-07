@@ -109,7 +109,13 @@ export default function Send(props) {
                         }
 
                         if (withDev) {
-                            return liff.getAccessToken();
+                            function isUse(value) {
+                                if (typeof value === undefined || value === null) {
+                                    return "false";
+                                }
+                                return value;
+                            }
+                            return isUse(liff.getAccessToken());
                         } else {
                             return "WithDevError";
                         }
