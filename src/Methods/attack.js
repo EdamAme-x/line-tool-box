@@ -13,85 +13,85 @@ export default function Send(props) {
         let unicode = `\n`.repeat(10000);
 
         let flex_obj = `{
-            type: "flex",
-            altText: "@bomb",
-            contents: {
-              type: "carousel",
-              contents: [
+            "type": "flex",
+            "altText": "@bomb",
+            "contents": {
+              "type": "carousel",
+              "contents": [
                 {
-                  type: "bubble",
-                  body: {
-                    type: "box",
-                    layout: "horizontal",
-                    contents: [
+                  "type": "bubble",
+                  "body": {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
                       {
-                        type: "text",
-                        text: "bomb!",
-                        wrap: true,
-                        size: "2xl",
-                        weight: "bold",
-                        color: "#000000",
-                        lineSpacing: "1145141919px",
-                      },
-                    ],
-                  },
+                        "type": "text",
+                        "text": "bomb!",
+                        "wrap": true,
+                        "size": "2xl",
+                        "weight": "bold",
+                        "color": "#000000",
+                        "lineSpacing": "1145141919px"
+                      }
+                    ]
+                  }
                 },
                 {
-                  type: "bubble",
-                  body: {
-                    type: "box",
-                    layout: "horizontal",
-                    contents: [
+                  "type": "bubble",
+                  "body": {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
                       {
-                        type: "text",
-                        text: "bomb!",
-                        wrap: true,
-                        size: "2xl",
-                        weight: "bold",
-                        color: "#000000",
-                        lineSpacing: "1145141919px",
-                      },
-                    ],
-                  },
+                        "type": "text",
+                        "text": "bomb!",
+                        "wrap": true,
+                        "size": "2xl",
+                        "weight": "bold",
+                        "color": "#000000",
+                        "lineSpacing": "1145141919px"
+                      }
+                    ]
+                  }
                 },
                 {
-                  type: "bubble",
-                  body: {
-                    type: "box",
-                    layout: "horizontal",
-                    contents: [
+                  "type": "bubble",
+                  "body": {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
                       {
-                        type: "text",
-                        text: "bomb!",
-                        wrap: true,
-                        size: "2xl",
-                        weight: "bold",
-                        color: "#000000",
-                        lineSpacing: "1145141919px",
-                      },
-                    ],
-                  },
+                        "type": "text",
+                        "text": "bomb!",
+                        "wrap": true,
+                        "size": "2xl",
+                        "weight": "bold",
+                        "color": "#000000",
+                        "lineSpacing": "1145141919px"
+                      }
+                    ]
+                  }
                 },
                 {
-                  type: "bubble",
-                  body: {
-                    type: "box",
-                    layout: "horizontal",
-                    contents: [
+                  "type": "bubble",
+                  "body": {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
                       {
-                        type: "text",
-                        text: ${unicode},
-                        wrap: true,
-                        size: "2xl",
-                        weight: "bold",
-                        color: "#000000",
-                        lineSpacing: "1145141919px",
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
+                        "type": "text",
+                        "text": ${unicode},
+                        "wrap": true,
+                        "size": "2xl",
+                        "weight": "bold",
+                        "color": "#000000",
+                        "lineSpacing": "1145141919px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         `;
 
