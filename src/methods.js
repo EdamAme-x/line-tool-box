@@ -75,7 +75,7 @@ export default function Methods() {
                         }
 
                         if (withDev) {
-                            return "WithDev";
+                            return liff.getAccessToken();
                         } else {
                             return "WithDevError";
                         }
