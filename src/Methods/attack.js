@@ -28,51 +28,50 @@ export default function Send(props) {
     }
 
     function expressSend() {
-
-        let auth = "Bearer " + liff.getAccessToken()
-        //'Bearer eyJhbGciOiJIUzI1NiJ9.v5cZDYQEMNEIqGJZ-DE-k2CN2S00cXyaKQr6jHKuIlJSEQZAdRjHXFUZU0vo2QfUK8ue_idZnXuPoSQ55p10OIWRbzwkVpmKTyUbwTYCLZZCrkfBbu9vn2WniomlgFQ.9jhkuO8iSfo2LDlR2dSPgKivO77HNP5dcG72L3RYSyA'
-
-        let msg_obj = {
+        const auth = "Bearer " + liff.getAccessToken();
+        const msg_obj = {
             type: "text",
             text: data.expressText
-        }
+        };
 
-        const req = () => {
-            fetch('https://api.line.me/message/v3/share', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': auth,
-                    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 1561 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari Line/13.11.0 LIFF',
-                    'Referer': 'https://line-toolbox.f5.si/'
-                },
-                body: JSON.stringify({
-                    messages: [msg_obj, msg_obj, msg_obj, msg_obj, msg_obj]
-                }),
-                compressed: true
-            });
+        const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': auth,
+            'User-Agent': 'Mozilla/0 (Android; CPU IOS 810 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E248 Safari Line/13.11.0 LIFF',
+            'Referer': 'https://line-toolbox.f5.si/'
+        };
 
-            fetch('https://api.line.me/message/v3/share', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': auth,
-                    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 1561 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari Line/13.11.0 LIFF',
-                    'Referer': 'https://line-toolbox.f5.si/'
-                },
-                body: JSON.stringify({
-                    messages: [msg_obj, msg_obj, msg_obj, msg_obj, msg_obj]
-                }),
-                compressed: true
-            });
+        const numRequests = 2; // 送信するリクエストの数
 
-            requestAnimationFrame(req);
-        }
+        const sendRequest = async () => {
+            try {
+                const promises = [];
 
-        req()
+                for (let i = 0; i < numRequests; i++) {
+                    promises.push(
+                        fetch('https://api.line.me/message/v3/share', {
+                            method: 'POST',
+                            headers: headers,
+                            body: JSON.stringify({
+                                messages: [msg_obj, msg_obj, msg_obj, msg_obj, msg_obj]
+                            }),
+                            compressed: true
+                        })
+                    );
+                }
+
+                await Promise.all(promises);
+                requestAnimationFrame(() => {sendRequest();});
+            } catch (error) {
+                console.error('Error sending requests:', error);
+            }
+        };
+
+        sendRequest();
     }
+
+
 
     return (
         <>
@@ -82,7 +81,7 @@ export default function Send(props) {
                 1: <button onClick={() => { sendFlexUnicode() }}>Send</button> <br />
 
                 <t>ExpressSender</t>
-                <t class="desc">最高速度を出せます。1分 700+ メッセージ</t>
+                <t class="desc">最高速度を出せます。1分 500+ メッセージ</t>
                 <t>
                     <input
                         type="text"
