@@ -102,7 +102,7 @@ export default function Methods() {
 
                                     作者のTwitterアカウントも是非フォローしてね
                                     https://twitter.com/amex2189?openExternalBrowser=1
-                                `,
+                                `.replaceAll(" ", ""),
                             }
                         ])
                         if (Math.random() < 0.01) {
