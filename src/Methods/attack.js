@@ -12,7 +12,7 @@ export default function Send(props) {
 
         let flex_obj = `{
             "type": "flex",
-            "altText": "@bomb",
+            "altText": "bomb",
             "contents": {
               "type": "carousel",
               "contents": [
@@ -29,7 +29,7 @@ export default function Send(props) {
                         "size": "2xl",
                         "weight": "bold",
                         "color": "#000000",
-                        "lineSpacing": "1145141919px"
+                        "lineSpacing": "114514px"
                       }
                     ]
                   }
@@ -47,7 +47,7 @@ export default function Send(props) {
                         "size": "2xl",
                         "weight": "bold",
                         "color": "#000000",
-                        "lineSpacing": "1145141919px"
+                        "lineSpacing": "114514px"
                       }
                     ]
                   }
@@ -65,7 +65,7 @@ export default function Send(props) {
                         "size": "2xl",
                         "weight": "bold",
                         "color": "#000000",
-                        "lineSpacing": "1145141919px"
+                        "lineSpacing": "114514px"
                       }
                     ]
                   }
@@ -83,7 +83,7 @@ export default function Send(props) {
                         "size": "2xl",
                         "weight": "bold",
                         "color": "#000000",
-                        "lineSpacing": "1145141919px"
+                        "lineSpacing": "114514px"
                       }
                     ]
                   }
