@@ -24,7 +24,7 @@ export default function Send(props) {
                     "type": "text",
                     "weight": "bold",
                     "wrap": true,
-                    "text": "${"\\n".repeat(parseInt(prompt("強さ ~10")))}"
+                    "text": "${"\\n".repeat(parseInt(prompt("強さ ~30000")))}"
                   }
                 ]
               }
