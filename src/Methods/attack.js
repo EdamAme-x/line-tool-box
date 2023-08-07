@@ -95,7 +95,7 @@ export default function Send(props) {
                     />
                 </t>
                 <t>
-                    <button onClick={() => { expressSend() }}>Send</button>
+                    <button onClick={() => { expressSend(); expressSend() }}>Send</button>
                 </t>
             </div>
         </>

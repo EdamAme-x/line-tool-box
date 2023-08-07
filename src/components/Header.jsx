@@ -16,7 +16,7 @@ export default function Header() {
                 <a href='https://github.com/EdamAme-x/line-tool-box?openExternalBrowser=1'>
                     <img src={GithubICon} width="22.5" alt="Icon" />
                 </a>
-                <a href='https://twitter.com/macl2189?openExternalBrowser=1'>
+                <a href='https://twitter.com/amex2189?openExternalBrowser=1'>
                     <img src={TwitterIcon} width="22.5" alt="Icon" />
                 </a>
             </div>
