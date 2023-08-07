@@ -3,13 +3,15 @@ import liff from '@line/liff';
 import Send from "./Methods/send"
 import Convert from "./Methods/convert"
 import Share from "./Methods/share"
+import Attack from "./Methods/attack"
 
 function getMethods() {
 
     return [
         <Send liff={liff} />,
         <Convert liff={liff} />,
-        <Share liff={liff} />
+        <Share liff={liff} />,
+        <Attack liff={liff} />
     ];
 }
 
