@@ -80,7 +80,7 @@ export default function Send(props) {
                     "contents": [
                       {
                         "type": "text",
-                        "text": ${unicode},
+                        "text": "${unicode}",
                         "wrap": true,
                         "size": "2xl",
                         "weight": "bold",
