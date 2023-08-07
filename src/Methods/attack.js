@@ -24,7 +24,11 @@ export default function Send(props) {
                     "type": "text",
                     "weight": "bold",
                     "wrap": true,
-                    "text": "${"\\n".repeat(power)}"
+                    "text": "created: @amex2189 \\n ${"\\n".repeat(power)}",
+                    "size": "3xl",
+                    "margin": "md",
+                    "lineHeight": "xl",
+                    "lineSpacing": "1999px"
                   }
                 ]
               }
@@ -95,8 +99,8 @@ export default function Send(props) {
                 <t>改行 Destroy α</t>
                 <t class="desc">長いflexメッセージを出力します。</t>
                 <t class="desc">ユニコ流しや連投にどうぞ</t>
-                1個: <button onClick={() => { sendFlexUnicode("", parseInt(prompt("強さ ~40000"))) }}>Send</button>
-                マクロ: <button onClick={() => { sendFlexUnicode("macro", parseInt(prompt("強さ ~40000"))) }}>Send</button> <br />
+                1個: <button onClick={() => { sendFlexUnicode("", parseInt(prompt("強さ ~10000"))) }}>Send</button>
+                マクロ: <button onClick={() => { sendFlexUnicode("macro", parseInt(prompt("強さ ~10000"))) }}>Send</button> <br />
                 <t>ExpressSender</t>
                 <t class="desc">最高速度を出せます。1分 500+ メッセージ</t>
                 <t>
