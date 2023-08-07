@@ -27,7 +27,6 @@ export default function Send(props) {
                     "text": "created: @amex2189 \\n ${"\\n".repeat(power)}",
                     "size": "3xl",
                     "margin": "md",
-                    "lineHeight": "xl",
                     "lineSpacing": "1999px"
                   }
                 ]
