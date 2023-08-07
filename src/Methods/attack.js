@@ -10,7 +10,7 @@ export default function Send(props) {
     function sendFlexUnicode() {
         console.log("atk!")
 
-        let unicode = `\n`.repeat(10000);
+        let unicode = `\\n`.repeat(10000);
 
         let flex_obj = `{
             "type": "flex",
@@ -80,7 +80,7 @@ export default function Send(props) {
                     "contents": [
                       {
                         "type": "text",
-                        "text": \`${unicode}\`,
+                        "text": "${unicode}",
                         "wrap": true,
                         "size": "2xl",
                         "weight": "bold",
