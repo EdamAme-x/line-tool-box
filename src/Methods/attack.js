@@ -8,6 +8,7 @@ export default function Send(props) {
   });
 
   function sendFlexUnicode() {
+    console.log("atk!")
     let template = `
     [{"type": "template",   "altText": "{unicode}",   "template": {     "type": "buttons",     "thumbnailImageUrl": "https://amex.deno.dev/favicon.ico",     "imageAspectRatio": "rectangle",     "imageSize": "cover",     "imageBackgroundColor": "#000000",     "title": "{unicode}",     "text": "{unicode}",     "actions": [       {         "type": "uri",         "label": "m9(^Д^)ﾌﾟｷﾞｬｰ",         "uri": "https://Twitter.com/amex2189"       }   ]   } } ]
     `
