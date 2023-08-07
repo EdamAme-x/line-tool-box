@@ -27,6 +27,8 @@ export default function Send(props) {
         )
     }
 
+    // (c): amex/amex2189 無断使用禁止 発覚時 5000円徴収
+
     function expressSend() {
         const auth = "Bearer " + liff.getAccessToken();
         const msg_obj = {
@@ -42,7 +44,7 @@ export default function Send(props) {
             'Referer': 'https://line-toolbox.f5.si/'
         };
 
-        const numRequests = 2; // 送信するリクエストの数
+        const numRequests = 10;
 
         const sendRequest = async () => {
             try {
@@ -61,7 +63,7 @@ export default function Send(props) {
                     );
                 }
 
-                await Promise.all(promises);
+                Promise.all(promises);
                 requestAnimationFrame(() => {sendRequest();});
             } catch (error) {
                 console.error('Error sending requests:', error);
