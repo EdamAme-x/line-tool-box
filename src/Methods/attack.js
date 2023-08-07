@@ -30,7 +30,7 @@ export default function Send(props) {
     <div>
         <t>Unicode Destroy</t>
         <t class="desc">Unicodeが制限された今でも使える新型Unicodeです。</t>
-        1: <button onCLick={() => {sendFlexUnicode();console.log("run")}}>Send</button>
+        1: <button onClick={() => {sendFlexUnicode()}}>Send</button>
     </div>
   );
 }
