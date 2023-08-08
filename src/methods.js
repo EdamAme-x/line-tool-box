@@ -71,7 +71,7 @@ export default function Methods() {
                     Status: {Status.ok}
                 </t>
                 <t>
-                    SupportOC:{"　"}<button onClick={() => { window.location.href = "line://ti/g2/IUPNoTabjcA6QQ-9jq1LrsX22LTl5VKctQJhqw?amex" }}>Join</button>
+                    SupportOC:{"　"}<button onClick={() => { window.location.href = "line://ti/g2/HsZIadfGEJ3k0zMHdCqbMrKKOwsyLDD5YAuLkw" }}>Join</button>
                 </t>
             </div>
             {
