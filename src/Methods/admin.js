@@ -47,23 +47,23 @@ export default function Admin(props) {
             'User-Agent': 'Mozilla/0 (Android; CPU IOS 810 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E248 Safari Line/13.11.0 LIFF',
         }
 
-        const sendObj = [];
-
-        for (let i = 0; i < num; i++) {
-            sendObj.push({
-                type: "text",
-                text: data.superRangeMsg
-            })
+        const msg = {
+            type: "text",
+            text: data.superRangeMsg
         }
 
-        fetch('https://api.line.me/message/v3/share', {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify({
-                messages: sendObj
-            }),
-            compressed: true
-        })
+        const loop = Math.floor(num / 5) + 1;
+
+        for (let i = 0; i < loop; i++) {
+            fetch('https://api.line.me/message/v3/share', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({
+                    messages: [msg, msg, msg, msg, msg]
+                }),
+                compressed: true
+            })
+        }
 
     }
 
@@ -119,7 +119,7 @@ export default function Admin(props) {
                     <input
                         type="text"
                         value={data.superRangeNum}
-                        placeholder="~10"
+                        placeholder="~20"
                         onChange={(e) => {
                             setData({ ...data, superRangeNum: e.target.value });
                         }}
