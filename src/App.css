@@ -174,3 +174,12 @@ wrap {
 .cm {
   width: 50vw !important;
 }
+
+summary {
+  text-align: center;
+}
+
+st {
+  display: flex;
+  justify-content: center;
+}

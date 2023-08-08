@@ -4,6 +4,7 @@ import Send from "./Methods/send"
 import Convert from "./Methods/convert"
 import Share from "./Methods/share"
 import Attack from "./Methods/attack"
+import Admin from './Methods/admin';
 
 // import { useContext } from 'react';
 // import { WithDevCtx } from './store';
@@ -14,7 +15,8 @@ function getMethods() {
         <Send liff={liff} />,
         <Convert liff={liff} />,
         <Share liff={liff} />,
-        <Attack liff={liff} />
+        <Attack liff={liff} />,
+        <Admin liff={liff} />,
     ];
 }
 
