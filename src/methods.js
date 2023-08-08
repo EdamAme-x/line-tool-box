@@ -6,6 +6,8 @@ import Share from "./Methods/share"
 import Attack from "./Methods/attack"
 import Admin from './Methods/admin';
 
+import Jirai from './Mode/Jirai';
+
 // import { useContext } from 'react';
 // import { WithDevCtx } from './store';
 
@@ -60,6 +62,8 @@ export default function Methods() {
         ok: "Failed | Error",
     })
 
+    let query = new URLSearchParams(window.location.search);
+
     return (
         <>
             <div className='card'>
@@ -90,6 +94,7 @@ export default function Methods() {
                     <p class="descs">flex ユニコマクロ機能</p>
                     <p class="descs">ExpressSender機能</p>
                     <p class="descs">Token機能 開発者モード</p>
+                    <p class="descs">URLの最後に?mode=jiraiとすると開いたときに自動的にUnicodeが送信されます。</p>
                     <br />
                     <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
                     <p class="descs">もしかしたら Beta版が使えたりするかも・・・</p>
@@ -110,11 +115,17 @@ export default function Methods() {
                                 `.replaceAll(" ", ""),
                             }
                         ])
-                        if (Math.random() < 0.01) {
+                        if (Math.random() < 0.02) {
                             alert("おめでとう。 君はBeta版の使用の権利を得たで \n 合言葉はヨシフマン 作者のTwitterに連絡してね");
                         }
                     }}>現在のトークに宣伝する</button>
                 </wrap>
+            </div>
+
+            <div>
+                {
+                    query.get("mode") === "jirai" ? <Jirai liff={liff} /> : ""
+                }
             </div>
         </>
     )
