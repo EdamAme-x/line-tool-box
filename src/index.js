@@ -1,12 +1,9 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { WithDevCtx } from './store';
 
 
 ReactDOM.render(<Fragment>
-    <WithDevCtx.Provider WithDevCtx={false}>
-        <App />
-    </WithDevCtx.Provider>
+    <App />
 </Fragment>, document.getElementById('root'));
