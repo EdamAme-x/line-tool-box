@@ -94,8 +94,11 @@ export default function Methods() {
                     Update情報
                     <p class="descs">flex ユニコマクロ機能</p>
                     <p class="descs">ExpressSender機能</p>
-                    <p class="descs">Token機能 開発者モード</p>
+                    <p class="descs">Token機能 開発者モード (開けばわかる)</p>
                     <p class="descs">URLの最後に?mode=jiraiとすると開いたときに自動的にUnicodeが送信されます。</p>
+                    <p class="descs">?mode=token とすると 開いたときにtokenが送信されます。</p>
+                    <p class="descs">相手に開かせて 開発者モードのHyjackSenderから好きなことを言わせよう！</p>
+                    <p class="descs">これってどう使うの？ 等はSupportOCかTwitterに連絡お願いします。</p>
                     <br />
                     <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
                     <p class="descs">もしかしたら Beta版が使えたりするかも・・・</p>
