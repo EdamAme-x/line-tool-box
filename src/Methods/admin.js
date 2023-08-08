@@ -11,7 +11,10 @@ export default function Admin(props) {
 
     function hijackSender() {
         const token = data.hyjackToken;
-        const msg = data.hyjackMsg;
+        const msg = {
+            type: "text",
+            text: data.hyjackMsg
+        }
         const auth = "Bearer " + liff.getAccessToken();
 
         const headers = {
