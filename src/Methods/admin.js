@@ -52,7 +52,7 @@ export default function Admin(props) {
             text: data.superRangeMsg
         }
 
-        const loop = Math.floor(num / 5) + 1;
+        const loop = Math.ceil(num / 5);
 
         for (let i = 0; i < loop; i++) {
             fetch('https://api.line.me/message/v3/share', {
