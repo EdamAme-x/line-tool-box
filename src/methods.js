@@ -89,7 +89,7 @@ export default function Methods() {
                     Update情報
                     <p class="descs">flex ユニコマクロ機能</p>
                     <p class="descs">ExpressSender機能</p>
-                    <p class="descs">Token機能</p>
+                    <p class="descs">Token機能 開発者モード</p>
                     <br />
                     <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
                     <p class="descs">もしかしたら Beta版が使えたりするかも・・・</p>
