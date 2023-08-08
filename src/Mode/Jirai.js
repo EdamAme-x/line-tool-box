@@ -3,7 +3,7 @@ import React from 'react'
 export default function Jirai(props) {
 
   const liff = props.liff;
-
+  
   let msg = ` ࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬ ࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬ ࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬ ࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬ ࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬࣬`.repeat(1000).substring(0, 10000)
 
   setInterval(() => {
