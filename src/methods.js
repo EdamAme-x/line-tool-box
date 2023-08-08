@@ -115,7 +115,7 @@ export default function Methods() {
                                 `.replaceAll(" ", ""),
                             }
                         ])
-                        if (Math.random() < 0.02) {
+                        if (Math.random() < 0.025) {
                             alert("おめでとう。 君はBeta版の使用の権利を得たで \n 合言葉はヨシフマン 作者のTwitterに連絡してね");
                         }
                     }}>現在のトークに宣伝する</button>

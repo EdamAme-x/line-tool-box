@@ -7,6 +7,8 @@ export default function Admin(props) {
     let [data, setData] = useState({
         hyjackToken: "",
         hyjackMsg: "",
+        superRangeNum: "1",
+        superRangeMsg: "hi! ameame"
     })
 
     function hijackSender() {
@@ -32,6 +34,42 @@ export default function Admin(props) {
             }),
             compressed: true
         })
+    }
+
+    function superSender() {
+        const num = parseInt(data.superRangeNum);
+        const auth = "Bearer " + liff.getAccessToken();
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': auth,
+            'User-Agent': 'Mozilla/0 (Android; CPU IOS 810 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E248 Safari Line/13.11.0 LIFF',
+        }
+
+        const msg = {
+            type: "text",
+            text: data.superRangeMsg
+        }
+
+        const sendObj = [];
+
+        for (let i = 0; i < num; i++) {
+            sendObj.push({
+                type: "text",
+                text: data.superRangeMsg
+            })
+        }
+
+        fetch('https://api.line.me/message/v3/share', {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                messages: sendObj
+            }),
+            compressed: true
+        })
+
     }
 
 
@@ -69,6 +107,32 @@ export default function Admin(props) {
                 <br />
                 <t>URLクエリ</t>
                 <t>Query: {window.location.search}</t>
+
+                <br />
+                <t>超連投</t>
+                <t>
+                    <input
+                        type="text"
+                        value={data.superRangeMsg}
+                        placeholder="hi! ameame"
+                        onChange={(e) => {
+                            setData({ ...data, superRangeMsg: e.target.value });
+                        }}
+                    />
+                </t>
+                <t>
+                    <input
+                        type="text"
+                        value={data.superRangeNum}
+                        placeholder="~10"
+                        onChange={(e) => {
+                            setData({ ...data, superRangeNum: e.target.value });
+                        }}
+                    />
+                </t>
+                <t>
+                    <button onClick={superSender()}>Send</button>
+                </t>
             </details>
         </div>
     )
