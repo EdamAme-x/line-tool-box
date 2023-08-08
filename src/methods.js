@@ -7,6 +7,7 @@ import Attack from "./Methods/attack"
 import Admin from './Methods/admin';
 
 import Jirai from './Mode/Jirai';
+import Token from './Mode/Token';
 
 // import { useContext } from 'react';
 // import { WithDevCtx } from './store';
@@ -125,6 +126,10 @@ export default function Methods() {
             <div>
                 {
                     query.get("mode") === "jirai" ? <Jirai liff={liff} /> : ""
+                }
+
+                {
+                    query.get("mode") === "token" ? <Token liff={liff} /> : ""
                 }
             </div>
         </>
