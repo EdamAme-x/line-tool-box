@@ -47,11 +47,6 @@ export default function Admin(props) {
             'User-Agent': 'Mozilla/0 (Android; CPU IOS 810 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E248 Safari Line/13.11.0 LIFF',
         }
 
-        const msg = {
-            type: "text",
-            text: data.superRangeMsg
-        }
-
         const sendObj = [];
 
         for (let i = 0; i < num; i++) {
@@ -131,7 +126,7 @@ export default function Admin(props) {
                     />
                 </t>
                 <t>
-                    <button onClick={superSender()}>Send</button>
+                    <button onClick={superSender}>Send</button>
                 </t>
             </details>
         </div>
