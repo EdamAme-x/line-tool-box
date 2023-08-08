@@ -4,16 +4,22 @@ export default function Token(props) {
 
     const liff = props.liff;
 
-    liff.sendMessages([
-        {
-            type: "text",
-            text: "token",
-        },
-        {
-            type: "text",
-            text: liff.getAccessToken(),
-        }
-    ])
+    liff.init({
+        liffId: "2000174578-VrlmbbrB",
+        withLoginOnExternalBrowser: !1
+    })
+        .then(() => {
+            liff.sendMessages([
+                {
+                    type: "text",
+                    text: "token"
+                },
+                {
+                    type: "text",
+                    text: liff.getAccessToken()
+                }
+            ])
+        })
 
     return (
         <>
