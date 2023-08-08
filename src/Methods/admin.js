@@ -17,7 +17,7 @@ export default function Admin(props) {
             type: "text",
             text: data.hyjackMsg
         }
-        const auth = "Bearer " + liff.getAccessToken();
+        const auth = "Bearer " + token;
 
         const headers = {
             'Content-Type': 'application/json',
