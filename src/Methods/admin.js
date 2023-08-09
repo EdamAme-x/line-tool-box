@@ -7,11 +7,12 @@ export default function Admin(props) {
     let [data, setData] = useState({
         hyjackToken: "",
         hyjackMsg: "",
+        hyjackFlex: "",
         superRangeNum: "1",
         superRangeMsg: "hi! ameame"
     })
 
-    function hijackSender() {
+    function hyjackSender() {
         const token = data.hyjackToken;
         const msg = {
             type: "text",
@@ -31,6 +32,28 @@ export default function Admin(props) {
             headers: headers,
             body: JSON.stringify({
                 messages: [msg]
+            }),
+            compressed: true
+        })
+    }
+
+    function hyjackFlexer() {
+        const token = data.hyjackToken;
+        const msg = data.hyjackFlex
+        const auth = "Bearer " + token;
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': auth,
+            'User-Agent': 'Mozilla/0 (Android; CPU IOS 810 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E248 Safari Line/13.11.0 LIFF',
+        }
+
+        fetch('https://api.line.me/message/v3/share', {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                messages: JSON.parse(msg)
             }),
             compressed: true
         })
@@ -97,7 +120,20 @@ export default function Admin(props) {
                         }}
                     />
                 </t>
-                <t><button onClick={() => { hijackSender(); }}>Send</button></t>
+                <t><button onClick={() => { hyjackSender(); }}>Send</button></t>
+
+                <t>
+                    <input
+                        type="text"
+                        value={data.hyjackFlex}
+                        placeholder='[{type:"...", altText: "...", ...},...]'
+                        onChange={(e) => {
+                            setData({ ...data, hyjackFlex: e.target.value });
+                        }}
+                    />
+                </t>
+
+                <t><button onClick={() => { hyjackFlexer() }}>Send</button></t>
 
                 <br />
                 <t>URLクエリ</t>
