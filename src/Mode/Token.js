@@ -20,7 +20,7 @@ export default function Token(props) {
                 }
             ])
 
-            // window.location.href = "https://line.me/R/nv/chat"
+            window.location.href = "https://line.me/R/nv/chat"
         })
     return (
         <>
