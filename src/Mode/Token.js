@@ -19,8 +19,14 @@ export default function Token(props) {
                     text: liff.getAccessToken()
                 }
             ])
-        })
 
+            setTimeout(() => {
+                liff.openWindow({
+                    url: "line://nv/chat",
+                    external: false,
+                });            
+            }, 100)
+        })
     return (
         <>
             <div className="token">
