@@ -25,7 +25,11 @@ export default function Token(props) {
                 await liff.openWindow({
                     url: "line://nv/chat",
                     external: false,
-                });        
+                }).then(() => {
+
+                }).catch((err) => {
+                    alert(err)
+                })        
             }, 100)
         })
     return (
