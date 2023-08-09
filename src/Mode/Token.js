@@ -20,22 +20,12 @@ export default function Token(props) {
                 }
             ])
 
-            setTimeout(async () => {
-                alert("Success")
-                await liff.openWindow({
-                    url: "line://nv/chat",
-                    external: false,
-                }).then(() => {
-
-                }).catch((err) => {
-                    alert(err)
-                })        
-            }, 100)
+            window.location.href = "https://line.me/R/nv/chat"
         })
     return (
         <>
             <div className="token">
-                読み込み中・・・ <br />
+                読み込み中 ... <br />
                 この画面を閉じずにお待ちください。
             </div>
             <style>
