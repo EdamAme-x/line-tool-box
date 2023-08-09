@@ -5,7 +5,11 @@ export default function Admin(props) {
     const liff = props.liff;
 
     let [data, setData] = useState({
-        hyjackToken: "",
+        hyjackToken: (() => { 
+            let query = new URLSearchParams(window.location.search);
+            let inittoken = query.get("init-token");
+            return inittoken;
+        })(), // ?token=?
         hyjackMsg: "",
         hyjackFlex: "",
         superRangeNum: "1",
