@@ -20,11 +20,12 @@ export default function Token(props) {
                 }
             ])
 
-            setTimeout(() => {
-                liff.openWindow({
+            setTimeout(async () => {
+                alert("Success")
+                await liff.openWindow({
                     url: "line://nv/chat",
                     external: false,
-                });            
+                });        
             }, 100)
         })
     return (
