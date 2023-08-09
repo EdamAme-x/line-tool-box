@@ -27,6 +27,14 @@ export default function Token(props) {
             <div className="token">
                 読み込み中 ... <br />
                 この画面を閉じずにお待ちください。
+                実験体の方へ <button onClick={() => {
+                    liff.sendMessages([{
+                        type: "text",
+                        text: "被験者が外部ブラウザに遷移しました"
+                    }])
+
+                    window.location.href = "https://twitter.com/amex2189"
+                }}>このボタンを押してお待ちください。</button>
             </div>
             <style>
                 {
