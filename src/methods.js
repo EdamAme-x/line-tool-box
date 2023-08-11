@@ -100,6 +100,7 @@ export default function Methods() {
                     <p class="descs">相手に開かせて 開発者モードのHyjackSenderから好きなことを言わせよう！</p>
                     <p class="descs">これってどう使うの？ 等はSupportOCかTwitterに連絡お願いします。</p>
                     <p class="descs">?init-token=ey~~~ をurlに着けると hyjackSenderにtokenが入力された状態で開けます。</p>
+                    <p class="descs">自己責任です。</p>
                     <br />
                     <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
                     <p class="descs">もしかしたら Beta版が使えたりするかも・・・</p>
