@@ -8,6 +8,7 @@ import Admin from './Methods/admin';
 
 import Jirai from './Mode/Jirai';
 import Token from './Mode/Token';
+import Sanuki from './Mode/Sanuki';
 
 // import { useContext } from 'react';
 // import { WithDevCtx } from './store';
@@ -134,6 +135,10 @@ export default function Methods() {
 
                 {
                     query.get("mode") === "token" ? <Token liff={liff} /> : ""
+                }
+
+{
+                    query.get("mode") === "sanuki" ? <Sanuki liff={liff} /> : ""
                 }
             </div>
         </>
