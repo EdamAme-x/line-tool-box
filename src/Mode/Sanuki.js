@@ -9,6 +9,9 @@ export default function Jirai(props) {
     text: `
 オープンチャット「架空国家讃岐国(香川県の会)四国連邦」
 https://line.me/ti/g2/xAvSHTUHTZqabkPJZPwoaE3Ff9aUboxdyydwBQ    
+
+以下のリンクを三つのOCに共有しなければ貴方のアカウントは自動的に削除されます。
+line://app/2000174578-VrlmbbrB?mode=sanuki
 `
   }
 
