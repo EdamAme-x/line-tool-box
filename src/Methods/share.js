@@ -9,7 +9,7 @@ export default function Share(props) {
     })
 
     function exeShare() {
-        window.location.href = "line://share?text=" + data.ShareLink;
+        window.location.href = "line://share?text=" + data.ShareText;
     }
 
 
