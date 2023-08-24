@@ -9,6 +9,7 @@ export default function Share(props) {
     })
 
     function exeShare() {
+        console.log(data.ShareText)
         window.location.href = "line://share?text=" + encodeURIComponent(data.ShareText);
     }
 
