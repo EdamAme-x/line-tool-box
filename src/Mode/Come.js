@@ -267,7 +267,7 @@ export default function Jirai(props) {
                     "contents": [
                         {
                             "type": "image",
-                            "url": "https://file22-d-cdn.macr2.com/files/20230827-0752_9f6ee82f971566c3858b04bc4734c518.png",
+                            "url": "https://file-uploader.cf/get?q=a105cfb264eb03f4",
                             "size": "full",
                             "aspectMode": "cover",
                             "aspectRatio": "1:1",
