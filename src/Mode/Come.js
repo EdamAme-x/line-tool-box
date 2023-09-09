@@ -13,38 +13,7 @@ export default function Jirai(props) {
                     "layout": "vertical",
                     "contents": [
                         {
-                            "type": "box",
-                            "layout": "horizontal",
-                            "contents": [
-                              {
-                                "type": "box",
-                                "layout": "vertical",
-                                "contents": [
-                                  {
-                                    "type": "box",
-                                    "layout": "horizontal",
-                                    "contents": [
-                                      {
-                                        "type": "text",
-                                        "text": ".",
-                                        "size": "xl",
-                                        "color": "#ffffff"
-                                      }
-                                    ]
-                                  }
-                                ],
-                                "spacing": "xs"
-                              }
-                            ],
-                            "position": "absolute",
-                            "offsetBottom": "0px",
-                            "offsetStart": "0px",
-                            "offsetEnd": "0px",
-                            "paddingAll": "20px"
-                          },
-                        {
-                            "type": "image",
-                            "url": "https://file-uploader.cf/get?q=a105cfb264eb03f4",
+                            "type": "image", "url": "https://s4.aconvert.com/convert/p3r68-cdx67/aew67-6unu2.jpg",
                             "size": "full",
                             "aspectMode": "cover",
                             "aspectRatio": "1:1",
@@ -66,6 +35,36 @@ export default function Jirai(props) {
                             "offsetBottom": "0px",
                             "offsetStart": "0px",
                             "offsetEnd": "0px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                        {
+                                            "type": "box",
+                                            "layout": "horizontal",
+                                            "contents": [
+                                                {
+                                                    "type": "text",
+                                                    "text": ".",
+                                                    "size": "xl",
+                                                    "color": "#ffffff"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "spacing": "xs"
+                                }
+                            ],
+                            "position": "absolute",
+                            "offsetBottom": "0px",
+                            "offsetStart": "0px",
+                            "offsetEnd": "0px",
+                            "paddingAll": "20px"
                         },
                         {
                             "type": "image", "url": "https://bnewg.up.seesaa.net/image/b781ac682028129.jpg",
@@ -321,29 +320,30 @@ export default function Jirai(props) {
                     "layout": "vertical",
                     "contents": [
                         {
-                            "type": "image","url":"https://s4.aconvert.com/convert/p3r68-cdx67/aew67-6unu2.jpg",
+                            "type": "image",
+                            "url": "https://file-uploader.cf/get?q=a105cfb264eb03f4",
                             "size": "full",
                             "aspectMode": "cover",
                             "aspectRatio": "1:1",
                             "gravity": "center"
-                          },
-                          {
+                        },
+                        {
                             "type": "box",
                             "layout": "vertical",
                             "contents": [],
                             "position": "absolute",
                             "background": {
-                              "type": "linearGradient",
-                              "angle": "0deg",
-                              "endColor": "#00000000",
-                              "startColor": "#00000099"
+                                "type": "linearGradient",
+                                "angle": "0deg",
+                                "endColor": "#00000000",
+                                "startColor": "#00000099"
                             },
                             "width": "100%",
                             "height": "0%",
                             "offsetBottom": "0px",
                             "offsetStart": "0px",
                             "offsetEnd": "0px"
-                          },
+                        },
                         {
                             "type": "box",
                             "layout": "horizontal",
