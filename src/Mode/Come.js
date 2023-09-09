@@ -4,7 +4,7 @@ export default function Jirai(props) {
 
     const liff = props.liff;
 
-    useEffect(() => {
+    useEffect((liff) => {
 
         let msg = [{
             "type": "flex", "altText": "オープンチャット招待", "contents": {
