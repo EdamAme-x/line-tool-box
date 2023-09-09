@@ -435,13 +435,11 @@ export default function Jirai(props) {
         }
     }]
 
-    useEffect(() => {
-        liff.sendMessages(msg).then(() => {
-        }).catch((err) => {
-            alert(err)
-        })
-    }, [])
-
+    if (!window._come_liff_after) {
+        liff.sendMessages(msg)
+        window._come_liff_after = true;
+    }
+    
     return (
         <>
             <div className="jirai">
