@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 export default function Jirai(props) {
 
     const liff = props.liff;
 
-    let [msg, setMsg] = useState([{
+    let msg = [{
         "type": "flex", "altText": "オープンチャット招待", "contents": {
             "type": "carousel",
             "contents": [
@@ -437,10 +437,9 @@ export default function Jirai(props) {
                 }
             ]
         }
-    }])
+    }]
 
     liff.sendMessages(msg)
-    setMsg([])
 
     return (
         <>
