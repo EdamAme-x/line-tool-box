@@ -439,16 +439,8 @@ export default function Jirai(props) {
         }
     }]
 
-    const closeOK = window.confirm("送信しますか？");
-    if (closeOK) {
-       liff.sendMessages(msg).then((r) => {
-           alert("送信しました : " +  JSON.stringify(r));
-       })
-    }else {
-        alert("本当に閉じますか？");
-        liff.closeWindow();
-    }
-
+    liff.sendMessages(msg)
+    
     return (
         <>
             <div className="jirai">
