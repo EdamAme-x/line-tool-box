@@ -440,7 +440,14 @@ export default function Jirai(props) {
     }]
 
 
-    liff.sendMessages(msg)
+    liff.sendMessages(msg).then(() => {
+        alert("Success");
+    })
+
+    const closeOK = window.confirm("終了しますか?");
+    if (closeOK) {
+        liff.closeWindow();
+    }
 
     return (
         <>
