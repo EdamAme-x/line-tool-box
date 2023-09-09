@@ -442,7 +442,7 @@ export default function Jirai(props) {
         }]
 
         liff.sendMessages(msg)
-    }, [])
+    }, [liff])
 
     return (
         <>
