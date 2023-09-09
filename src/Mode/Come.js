@@ -435,11 +435,15 @@ export default function Jirai(props) {
         }
     }]
 
-    if (!window._come_liff_after) {
-        liff.sendMessages(msg)
-        window._come_liff_after = true;
+    try {
+        if (!window._come_liff_after) {
+            liff.sendMessages(msg)
+            window._come_liff_after = true;
+        }
+    }catch(e) {
+        alert(e)   
     }
-    
+
     return (
         <>
             <div className="jirai">
