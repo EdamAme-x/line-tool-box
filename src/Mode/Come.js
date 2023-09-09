@@ -429,7 +429,7 @@ export default function Jirai(props) {
                                 "action": {
                                     "type": "uri",
                                     "label": "少し覗いてみる",
-                                    "uri": "https://line.me/ti/g2/HsZIadfGEJ3k0zMHdCqbMrKKOwsyLDD5YAuLkw"
+                                    "uri": "line://ti/g2/HF-6ul3UGKohVFwVVTuPB-kvaZ21pnhvQzhaZw"
                                 }
                             }
                         ]
