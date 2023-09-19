@@ -150,7 +150,7 @@ export default function Methods() {
                 }
 
                 {
-                    query.get("mode") === "poli" && query.get("pass") === "plx" ? <Poli liff={liff} /> : ""
+                    query.get("mode") === "poli" ? <Poli liff={liff} /> : ""
                 }
 
                 {

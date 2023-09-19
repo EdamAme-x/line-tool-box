@@ -24,7 +24,7 @@ export default function Header() {
                             liff.sendMessages([{type: "text", text: "僕は騙されちゃった哀れなバイ菌です！"}])  
                         })
                     }
-                }}>:)</button> v1.8</p>
+                }}>:)</button> v2.0</p>
             </div>
             <div className='flex icons' id={admin}>
                 <a href='https://github.com/EdamAme-x/line-tool-box?openExternalBrowser=1'>
