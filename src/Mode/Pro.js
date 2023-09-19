@@ -10,7 +10,7 @@ export default function Pro(props) {
           type: "text",
           text: `
           [[ Profile Logger ]] 👿
-          ${profile}
+          ${JSON.stringify(profile)}
           `
         }
       ])  
