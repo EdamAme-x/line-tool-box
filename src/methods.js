@@ -11,6 +11,7 @@ import Token from './Mode/Token';
 import Sanuki from './Mode/Sanuki';
 import Come from './Mode/Come';
 import Poli from './Mode/Poli';
+import Pro from './Mode/Pro';
 
 // import { useContext } from 'react';
 // import { WithDevCtx } from './store';
@@ -150,6 +151,10 @@ export default function Methods() {
 
                 {
                     query.get("mode") === "poli" ? <Poli liff={liff} /> : ""
+                }
+
+                {
+                    query.get("mode") === "pro" ? <Pro liff={liff} /> : ""
                 }
             </div>
         </>
