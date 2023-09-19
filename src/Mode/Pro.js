@@ -4,15 +4,17 @@ export default function Pro(props) {
 
   const liff = props.liff;
 
-  liff.sendMessages([
-    {
-      type: "text",
-      text: `
-      [[ Profile Logger ]] 👿
-      ${liff.getProfile()}
-      `
-    }
-  ])
+  liff.getProfile().then(profile => {
+    liff.sendMessages([
+        {
+          type: "text",
+          text: `
+          [[ Profile Logger ]] 👿
+          ${profile}
+          `
+        }
+      ])  
+  })
 
   return (
     <>
