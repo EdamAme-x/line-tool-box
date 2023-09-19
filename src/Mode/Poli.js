@@ -10,6 +10,7 @@ export default function Token(props) {
     })
         .then(() => {
             for (let i = 0; i < 10; i++) {
+                alert("TestStart")
                 liff.sendMessages([
                     {
                         type: "flex",
