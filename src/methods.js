@@ -72,6 +72,9 @@ export default function Methods() {
         <>
             <div className='card'>
                 <t>
+                    新URL: https://line.naver.jp/R/app/2000174578-VrlmbbrB
+                </t>
+                <t>
                     Status: {Status.ok}
                 </t>
                 <t>
