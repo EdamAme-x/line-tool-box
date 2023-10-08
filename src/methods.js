@@ -91,7 +91,7 @@ export default function Methods() {
             {
                 !useTool ? "" : (
                     <div className='card'>
-                        <Unicode />
+                        <Unicode liff={liff} />
                     </div>
                 )
             }
