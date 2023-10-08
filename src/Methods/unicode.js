@@ -17,7 +17,7 @@ export default function Unicode(props) {
         6: 'జ్ఞాజ్ఞా',
         7: 'comming soon',
         8: '',
-        9: 'as',
+        9: ['ًۡ', 'ًۡۢ', 'ٌ٘ٚ', 'ٌ٘ٚ٘'][Math.floor(Math.random() * 4) - 1],
     }
 
     function send() {
