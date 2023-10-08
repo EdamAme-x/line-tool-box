@@ -17,7 +17,7 @@ export default function Unicode(props) {
         6: 'జ్ఞాజ్ఞా',
         7: 'comming soon',
         8: '',
-        9: this[Math.floor(Math.random() * this.length) + 1],
+        9: 'as',
     }
 
     function send() {
@@ -97,6 +97,9 @@ export default function Unicode(props) {
         <div>
             <t>
                 Unicode Creater & Sender
+            </t>
+            <t>
+                製作中 : 機能追加要望はSupportOCにお願いします。
             </t>
             <t>
                 ベースの文字　<span onClick={() => alert(`Unicodeの最初に付きます。`)}>[ 説明 ]</span>
