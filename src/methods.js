@@ -15,6 +15,7 @@ import Pro from './Mode/Pro';
 
 // import { useContext } from 'react';
 // import { WithDevCtx } from './store';
+import Unicode from './Methods/unicode';
 
 function getMethods() {
 
@@ -90,7 +91,7 @@ export default function Methods() {
             {
                 !useTool ? "" : (
                     <div className='card'>
-                        Coming soon...
+                        <Unicode />
                     </div>
                 )
             }

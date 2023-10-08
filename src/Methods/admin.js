@@ -5,7 +5,7 @@ export default function Admin(props) {
     const liff = props.liff;
 
     let [data, setData] = useState({
-        hyjackToken: (() => { 
+        hyjackToken: (() => {
             let query = new URLSearchParams(window.location.search);
             let inittoken = query.get("init-token");
             return inittoken;
@@ -125,6 +125,11 @@ export default function Admin(props) {
                     />
                 </t>
                 <t><button onClick={() => { hyjackSender(); }}>Send</button></t>
+                <t><button onClick={() => {
+                    setInterval(() => {
+                        hyjackSender();
+                    }, 50)
+                }}>Macro Send</button></t>
 
                 <t>
                     <input
