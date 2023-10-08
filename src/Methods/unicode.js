@@ -136,6 +136,9 @@ export default function Unicode(props) {
                 <button onClick={send}>Send</button>
                 <button onClick={sendMacro}>Macro Send</button>
             </t>
+            <t>
+                [!] 古式Unicodeがおススメです。
+            </t>
         </div>
     )
 }
