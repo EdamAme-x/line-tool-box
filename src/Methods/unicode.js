@@ -67,7 +67,7 @@ export default function Unicode(props) {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify({
-                    messages: JSON.parse(msg)
+                    messages: msg
                 }),
                 compressed: true
             })
