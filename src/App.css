@@ -187,3 +187,8 @@ st {
 .create {
   width: 80vw !important;
 }
+
+.unico-reach {
+  width: 75vw !important;
+  margin: 0 auto;
+}
