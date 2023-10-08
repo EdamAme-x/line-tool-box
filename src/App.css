@@ -183,3 +183,7 @@ st {
   display: flex;
   justify-content: center;
 }
+
+.create {
+  width: 80vw !important;
+}

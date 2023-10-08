@@ -67,6 +67,8 @@ export default function Methods() {
         ok: "Failed | Error",
     })
 
+    let [useTool, setUseTool] = useState(false);
+
     let query = new URLSearchParams(window.location.search);
 
     return (
@@ -81,7 +83,17 @@ export default function Methods() {
                 <t>
                     SupportOC:{"　"}<button onClick={() => { window.location.href = "line://ti/g2/HsZIadfGEJ3k0zMHdCqbMrKKOwsyLDD5YAuLkw" }}>Join</button>
                 </t>
+                <t>
+                    <button className='create' onClick={() => { setUseTool(!useTool) }}>Unicode作成ツール</button>
+                </t>
             </div>
+            {
+                !useTool ? "" : (
+                    <div className='card'>
+                        Coming soon...
+                    </div>
+                )
+            }
             {
                 method.map(
                     (item, index) => (
