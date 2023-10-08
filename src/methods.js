@@ -82,7 +82,7 @@ export default function Methods() {
                     Status: {Status.ok}
                 </t>
                 <t>
-                    SupportOC:{"　"}<button onClick={() => { window.location.href = "line://ti/g2/HsZIadfGEJ3k0zMHdCqbMrKKOwsyLDD5YAuLkw" }}>Join</button>
+                    SupportOC:{"　"}<button onClick={() => { window.location.href = "https://line.me/ti/g2/HF-6ul3UGKohVFwVVTuPB-kvaZ21pnhvQzhaZw" }}>Join</button>
                 </t>
                 <t>
                     <button className='create' onClick={() => { setUseTool(!useTool) }}>Unicode作成ツール</button>
