@@ -124,6 +124,8 @@ export default function Methods() {
                     <p class="descs">?init-token=ey~~~ をurlに着けると hyjackSenderにtokenが入力された状態で開けます。</p>
                     <p class="descs">Unicode Createrを作成</p>
                     <p class="descs">Unicode 解析を作成</p>
+		    <p class="descs">line:// を https://line.ame-x.net/ に変えれば規制を回避できます。</p>
+		    <p class="descs">例: line://square/report?... => https://line.ame-x.net/square/report?...</p>
                     <p class="descs">自己責任です。</p>
                     <br />
                     <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
