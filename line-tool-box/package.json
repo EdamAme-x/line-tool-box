@@ -10,8 +10,7 @@
     "dev:ssr": "ng run line-tool-box:serve-ssr",
     "serve:ssr": "node dist/line-tool-box/server/main.js",
     "build:ssr": "ng build && ng run line-tool-box:server",
-    "prerender": "ng run line-tool-box:prerender",
-    "vercel-build": "ng build && ng run line-tool-box:server"
+    "prerender": "ng run line-tool-box:prerender"
   },
   "private": true,
   "dependencies": {
