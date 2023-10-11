@@ -1,0 +1,39 @@
+.layout {
+  width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.layout > header * {
+    margin: 0 10px;
+}
+
+.layout > header {
+  width: 100vw;
+  background-color: rgba(240, 248, 255, 0.022);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout > header > h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Fira Code", monospace;
+}
+
+.layout {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 41, 41, 42;
+  --background-end-rgb: 0, 0, 0;
+}
+
+.layout {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
