@@ -3,9 +3,12 @@ LINEで使えるWebツール集
 旧: https://line.naver.jp/R/app/2000174578-VrlmbbrB
 
 ### 新
-Angular  
+Angular OR NextJS
 
 ```
+npm run dev
+```
+# Angular
 npm i
 npm run dev:ssr
 ```
