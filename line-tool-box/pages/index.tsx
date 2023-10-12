@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Home | LINE-Tool-Box</title>
+        <title> Home | LINE-Tool-Box</title>
       </Helmet>
       <Layout>
         <main className={`${inter.className} flex flex-wrap`}>

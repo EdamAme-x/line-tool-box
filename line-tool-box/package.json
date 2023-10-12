@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@line/liff": "^2.22.4",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
