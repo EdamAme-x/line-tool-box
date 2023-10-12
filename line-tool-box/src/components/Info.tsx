@@ -24,6 +24,7 @@ export function Info({ liffId }: Props) {
 
 function Information({ liffId }: Props): JSX.Element {
   const [setup, setSetup] = useState(false);
+  const [scopes, setScopes] = useState<string>("");
 
   if (typeof window === "undefined") {
     return <></>;
@@ -33,8 +34,11 @@ function Information({ liffId }: Props): JSX.Element {
     .init({
       liffId: liffId,
     })
-    .then(() => setSetup(true))
-    .catch((_e) => {});
+    .then(() => {
+      setSetup(true);
+      setScopes(liff.getContext()?.scope.join(" ").replace("chat_message.", "") as string);
+    })
+    .catch((_e) => console.log);
 
   return (
     <div className="font-mono font-bold p-3">
@@ -44,8 +48,9 @@ function Information({ liffId }: Props): JSX.Element {
         ? "LIFF / " + liff.getOS()
         : "Browser / " + liff.getOS()}
       <br />
-      Version: v{liff.getVersion()}
+      Version: v{(Math.floor((parseFloat(liff.getVersion()) - 1) * 100)) / 100}
       <br />
+      Scopes: {scopes}
     </div>
   );
 }

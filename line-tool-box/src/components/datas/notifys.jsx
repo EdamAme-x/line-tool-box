@@ -12,5 +12,16 @@ export const Notifys = [
             <p>まぁそういう事です。</p>
         </div>
         `
+    },
+    {
+        title: "リンク集",
+        description: `
+        <div style="overflow-y: scroll; height: 50vh;">
+            <p> 昔のツール https://line.naver.jp/R/app/2000174578-VrlmbbrB </p>
+            <p> 現在のツール(拡散してくれると助かります。) https://line.naver.jp/R/app/2001110580-p8w3dBZq  </p>
+            <p> 開発者の Twitter (フォローがモチベにつながります！) : https://twitter.com/amex2189 </p>
+            <p> 開発者の GitHub : https://github.com/EdamAme-x </p>
+        </div>
+        `
     }
 ]
