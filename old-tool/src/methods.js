@@ -81,6 +81,10 @@ export default function Methods() {
                     新URL: https://line.naver.jp/R/app/2000174578-VrlmbbrB
                 </t>
                 <t>
+                  現在 大幅に強化された新ツールの開発中です。<br/>
+                  ご期待ください。 SupportOCにて「ame」, 「ame-x」をメンションすることで、いち早く最新情報をgetできます。
+                </t>
+                <t>
                     Status: {Status.ok}
                 </t>
                 <t>
