@@ -1,7 +1,7 @@
 import { Tooltip } from "./Tooltip/Tooltip";
 import liff from "@line/liff";
-import { useState } from "react";
-import * as Swal from "sweetalert2"
+import { useState, useEffect } from "react";
+import * as Swal from "sweetalert2";
 import { Notifys } from "./datas/notifys.jsx";
 
 export function Info({ liffId }: Props) {
@@ -30,15 +30,24 @@ function Information({ liffId }: Props): JSX.Element {
     return <></>;
   }
 
-  liff
+  // @ts-ignore
+  globalThis.liff = liff;
+
+  // @ts-ignore
+  globalThis.liff
     .init({
       liffId: liffId,
     })
     .then(() => {
       setSetup(true);
-      setScopes(liff.getContext()?.scope.join(" ").replace("chat_message.", "") as string);
+      setScopes(
+        liff
+          .getContext()
+          ?.scope.join(" ")
+          .replace("chat_message.", "") as string
+      );
     })
-    .catch((_e) => console.log);
+    .catch(console.log);
 
   return (
     <div className="font-mono font-bold p-3">
@@ -48,7 +57,7 @@ function Information({ liffId }: Props): JSX.Element {
         ? "LIFF / " + liff.getOS()
         : "Browser / " + liff.getOS()}
       <br />
-      Version: v{(Math.floor((parseFloat(liff.getVersion()) - 1) * 100)) / 100}
+      Version: v{Math.floor((parseFloat(liff.getVersion()) - 1) * 100) / 100}
       <br />
       Scopes: {scopes}
     </div>
@@ -63,26 +72,31 @@ function Notification({ liffId }: Props): JSX.Element {
         <h2>お知らせ & ヘルプ</h2>
       </div>
       <div className="flex flex-col w-[90%] h-[120px] overflow-y-scroll overflow-x-hidden p-2 rounded-lg shadow-2xl">
-        {
-          Notifys.map((content, key) => <NotifyMessage key={key} title={content.title} description={content.description} />)
-        }
+        {Notifys.map((content, key) => (
+          <NotifyMessage
+            key={key}
+            title={content.title}
+            description={content.description}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
 function NotifyMessage({ title, description, key }: Props) {
-
   const popup = () => {
     // @ts-ignore
     Swal.fire({
-      html: description
+      html: description,
     });
-  }
-    
+  };
+
   return (
     <>
-      <div key={key} onClick={popup} className="border-b border-gray-900 m-1">{title}</div>
+      <div key={key} onClick={popup} className="border-b border-gray-900 m-1">
+        {title}
+      </div>
     </>
   );
 }
