@@ -13,6 +13,7 @@ Angular OR NextJS
 npm run dev
 ```
 # Angular
+```
 npm i
 npm run dev:ssr
 ```
