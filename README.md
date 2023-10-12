@@ -2,9 +2,9 @@ LINEで使えるWebツール集
 自己責任です。　
 旧: https://line.naver.jp/R/app/2000174578-VrlmbbrB  
 
-[x] LINE SendAPI  
-[x] 高度なツール群  
-[x] Tokenを利用した 世界初のツール
+☑ LINE SendAPI  
+☑ 高度なツール群  
+☑ Tokenを利用した LINE初のツール
 
 ### 新
 Angular OR NextJS
