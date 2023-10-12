@@ -18,7 +18,7 @@ export default function Home() {
       </Helmet>
       <Layout>
         <main className={`${inter.className} flex flex-wrap`}>
-          <Info />
+          <Info liffId={liffId} />
         </main>
       </Layout>
     </>
