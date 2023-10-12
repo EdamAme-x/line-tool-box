@@ -1,6 +1,8 @@
 import { Tooltip } from "./Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState } from "react";
+import * as Swal from "sweetalert2"
+import { Notifys } from "./datas/notifys.jsx";
 
 export function Info({ liffId }: Props) {
   return (
@@ -56,10 +58,9 @@ function Notification({ liffId }: Props): JSX.Element {
         <h2>お知らせ & ヘルプ</h2>
       </div>
       <div className="flex flex-col w-[90%] h-[120px] overflow-y-scroll overflow-x-hidden p-2 rounded-lg shadow-2xl">
-        <NotifyMessage title="お知らせ" description="お知らせ" />
-        <NotifyMessage title="ヘルプ" description="ヘルプ" />
-        <NotifyMessage title="お知らせ" description="お知らせ" />
-        <NotifyMessage title="ヘルプ" description="ヘルプ" />
+        {
+          Notifys.map(content => <NotifyMessage title={content.title} description={content.description} />)
+        }
       </div>
     </div>
   );
@@ -68,12 +69,15 @@ function Notification({ liffId }: Props): JSX.Element {
 function NotifyMessage({ title, description }: Props) {
 
   const popup = () => {
-    
+    // @ts-ignore
+    Swal.fire({
+      html: description
+    });
   }
     
   return (
     <>
-      <div className="border-b border-gray-900 m-1">{title}</div>
+      <div onClick={popup} className="border-b border-gray-900 m-1">{title}</div>
     </>
   );
 }
