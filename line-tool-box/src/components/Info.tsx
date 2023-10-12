@@ -64,14 +64,14 @@ function Notification({ liffId }: Props): JSX.Element {
       </div>
       <div className="flex flex-col w-[90%] h-[120px] overflow-y-scroll overflow-x-hidden p-2 rounded-lg shadow-2xl">
         {
-          Notifys.map(content => <NotifyMessage title={content.title} description={content.description} />)
+          Notifys.map((content, key) => <NotifyMessage key={key} title={content.title} description={content.description} />)
         }
       </div>
     </div>
   );
 }
 
-function NotifyMessage({ title, description }: Props) {
+function NotifyMessage({ title, description, key }: Props) {
 
   const popup = () => {
     // @ts-ignore
@@ -82,7 +82,7 @@ function NotifyMessage({ title, description }: Props) {
     
   return (
     <>
-      <div onClick={popup} className="border-b border-gray-900 m-1">{title}</div>
+      <div key={key} onClick={popup} className="border-b border-gray-900 m-1">{title}</div>
     </>
   );
 }
