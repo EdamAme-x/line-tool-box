@@ -1,3 +1,4 @@
 .tooltip {
-    @apply w-[100%] md:w-[45%] my-3 h-auto bg-gray-200 text-gray-800 rounded p-5;
+    filter: drop-shadow( 0 0 5px #ffffff );
+    @apply w-[100%] md:w-[45%] my-3 h-auto bg-gray-200 text-gray-800 rounded p-2;
 }
