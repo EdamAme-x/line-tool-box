@@ -1,16 +1,13 @@
-import { Tooltip } from "./Tooltip/Tooltip";
+import { Tooltip } from "../Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState, useEffect } from "react";
 import * as Swal from "sweetalert2";
-import { Notifys } from "./datas/notifys.jsx";
+import { Notifys } from "@/src/components/datas/notifys.jsx";
 
 export function Info({ liffId }: Props) {
   return (
     <>
-      <div
-        className="flex flex-wrap justify-around w-full p-10"
-        suppressHydrationWarning
-      >
+      <div className="flex flex-wrap justify-around w-full p-10">
         <Tooltip>
           <Information liffId={liffId} />
         </Tooltip>
@@ -27,7 +24,7 @@ function Information({ liffId }: Props): JSX.Element {
   const [scopes, setScopes] = useState<string>("");
 
   if (typeof window === "undefined") {
-    return <></>;
+    return <div></div>;
   }
 
   // @ts-ignore
