@@ -91,29 +91,29 @@ export function Sender({ packet }: Props) {
 
   function sendExpress() {
     setInterval(() => {
-        sendLiffMessage(packet.token, [
-            {
-                type: "text",
-                text: data.ExpressMessage,
-              },
-              {
-                type: "text",
-                text: data.ExpressMessage,
-              },
-              {
-                type: "text",
-                text: data.ExpressMessage,
-              },
-              {
-                type: "text",
-                text: data.ExpressMessage,
-              },
-              {
-                type: "text",
-                text: data.ExpressMessage,
-              },
-          ]);
-    }, 10)
+      sendLiffMessage(packet.token, [
+        {
+          type: "text",
+          text: data.ExpressMessage,
+        },
+        {
+          type: "text",
+          text: data.ExpressMessage,
+        },
+        {
+          type: "text",
+          text: data.ExpressMessage,
+        },
+        {
+          type: "text",
+          text: data.ExpressMessage,
+        },
+        {
+          type: "text",
+          text: data.ExpressMessage,
+        },
+      ]);
+    }, 10);
   }
 
   return (
@@ -196,7 +196,7 @@ export function Sender({ packet }: Props) {
               <button
                 className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
                 onClick={() => {
-                  if (!prompt("テンプレートを使用しますか？")) re
+                  if (!prompt("テンプレートを使用しますか？")) return;
                   setData({
                     ...data,
                     FlexMessage: initFlexMessage.trim(),
@@ -258,7 +258,10 @@ export function Sender({ packet }: Props) {
                 });
               }}
             />
-            <button onClick={sendExpress} className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1">
+            <button
+              onClick={sendExpress}
+              className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1"
+            >
               送信
             </button>
           </div>

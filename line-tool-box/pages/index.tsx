@@ -11,6 +11,7 @@ import { Tooltip } from "@/src/components/Tooltip/Tooltip";
 
 import { TokenPanel } from "@/src/tools/TokenPanel/TokenPanel";
 import { Sender } from "@/src/tools/Sender/Sender";
+import { Converter } from "@/src/tools/Converter/Converter";
 
 // ---
 
@@ -56,6 +57,7 @@ function Tools({ liffId, packet }: Props) {
     <>
       <TokenPanel packet={packet} />
       <Sender packet={packet} />
+      <Converter packet={packet}></Converter>
     </>
   );
 }
