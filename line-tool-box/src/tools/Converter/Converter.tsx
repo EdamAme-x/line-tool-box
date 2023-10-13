@@ -1,6 +1,7 @@
 import { Tooltip } from "@/src/components/Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState } from "react";
+import { copyText } from "@/utils/sub/copyText"
 
 export function Converter({ packet }: Props) {
   if (typeof window === "undefined") {
@@ -73,10 +74,13 @@ export function Converter({ packet }: Props) {
               return (
                 <div key={i}>
                   <p>{r.name}</p>
+                  <div className="flex">
                   <input 
-                  className="w-full rounded-lg text-lg"
+                  className="w-[80%] rounded-lg text-lg p-1"
                     value={r.url}
                   />
+                  <button onClick={() => copyText(r.url)} className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1">Copy</button>
+                </div>
                 </div>
               );
             })}
