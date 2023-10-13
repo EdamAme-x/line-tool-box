@@ -106,7 +106,7 @@ export function Sender({ packet }: Props) {
                   FlexMessage: e.target.value,
                 });
               }}
-              className="w-[80%] h-[85px] p-1"
+              className="w-[80%] h-[100px] p-1"
             />
             <div className="w-[20%] flex flex-col justify-between">
               <button
@@ -119,6 +119,17 @@ export function Sender({ packet }: Props) {
                 }}
               >
                 整形
+              </button>
+              <button
+                className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
+                onClick={() => {
+                  setData({
+                    ...data,
+                    FlexMessage: "",
+                  });
+                }}
+              >
+                初期化
               </button>
               <button
                 className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
