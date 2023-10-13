@@ -34,9 +34,7 @@ export function Sender({ packet }: Props) {
                 }
               ]
             }
-        }
-      }
-    }`.trim(),
+        }`.trim(),
   });
 
   function sendStatic() {
