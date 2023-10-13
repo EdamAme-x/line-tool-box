@@ -6,7 +6,14 @@ import Layout from "@/src/Layout";
 import { getLiffId } from "@/utils/getLiffId";
 import { Info } from "@/src/components/Info/Info";
 import { Tooltip } from "@/src/components/Tooltip/Tooltip";
+
+// ---
+
 import { TokenPanel } from "@/src/tools/TokenPanel/TokenPanel";
+import { Sender } from "@/src/tools/Sender/Sender";
+
+// ---
+
 import { liff } from "@line/liff"; 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,7 +42,7 @@ export default function Home() {
       <Layout>
         <main className={`${inter.className} flex flex-wrap`}>
           <Info liffId={liffId} />
-          <div className="flex flex-wrap justify-around w-full p-10">
+          <div className="flex flex-wrap justify-around w-full p-10 pt-0">
             <Tools liffId={liffId} packet={{token, setToken}} />
           </div>
         </main>
@@ -48,6 +55,7 @@ function Tools({ liffId, packet }: Props) {
   return (
     <>
       <TokenPanel packet={packet} />
+      <Sender packet={packet} />
     </>
   );
 }
