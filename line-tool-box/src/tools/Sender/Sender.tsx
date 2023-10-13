@@ -38,7 +38,7 @@ export function Sender({ packet }: Props) {
 
   const [data, setData] = useState({
     StaticMessage: "Hello @amex2189!",
-    FlexMessage: initFlexMessage.trim(),
+    FlexMessage: "",
     RawMessage: `[{
         "type": "text",
         "text": "hi!"
@@ -198,11 +198,11 @@ export function Sender({ packet }: Props) {
                 onClick={() => {
                   setData({
                     ...data,
-                    FlexMessage: "",
+                    FlexMessage: initFlexMessage.trim(),
                   });
                 }}
               >
-                初期化
+                テンプレート
               </button>
               <button
                 className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
