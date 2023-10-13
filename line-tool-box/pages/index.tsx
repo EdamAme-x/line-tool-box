@@ -21,7 +21,7 @@ export default function Home() {
       setLiffObj(liff);
       console.log("Patch!");
       console.log(liff);
-      setToken(liff.getAccessToken() || "設定されていません。");
+      setToken(liff.getAccessToken() || "");
       console.log(token)
     })
   }, [])
