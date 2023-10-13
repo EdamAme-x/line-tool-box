@@ -16,7 +16,7 @@ export function Sender({ packet }: Props) {
     sendLiffMessage(packet.token, [
       {
         type: "text",
-        content: data.StaticMessage,
+        text: data.StaticMessage,
       },
     ]);
   }
