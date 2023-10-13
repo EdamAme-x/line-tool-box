@@ -1,16 +1,31 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { Helmet } from "react-helmet";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "@/src/Layout";
 import { getLiffId } from "@/utils/getLiffId";
 import { Info } from "@/src/components/Info/Info";
 import { Tooltip } from "@/src/components/Tooltip/Tooltip";
+import { TokenPanel } from "@/src/tools/TokenPanel/TokenPanel";
+import { liff } from "@line/liff"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [liffId, setLiffId] = useState(getLiffId());
+  const [liffObj, setLiffObj] = useState<any>({});
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    liff.init({ liffId: liffId }).then(() => {
+      setLiffObj(liff);
+      console.log("Patch!");
+      console.log(liff);
+      setToken(liff.getAccessToken() || "設定されていません。");
+      console.log(token)
+    })
+  }, [])
+ 
 
   return (
     <>
@@ -21,7 +36,7 @@ export default function Home() {
         <main className={`${inter.className} flex flex-wrap`}>
           <Info liffId={liffId} />
           <div className="flex flex-wrap justify-around w-full p-10">
-            <Tools liffId={liffId} />
+            <Tools liffId={liffId} packet={{token, setToken}} />
           </div>
         </main>
       </Layout>
@@ -29,12 +44,10 @@ export default function Home() {
   );
 }
 
-function Tools({ liffId }: Props) {
-  return <>
-    <Tooltip>
-      <div className="font-mono font-bold p-3">
-        <h2>メッセージ送信</h2>
-      </div>
-    </Tooltip>
-  </>;
+function Tools({ liffId, packet }: Props) {
+  return (
+    <>
+      <TokenPanel packet={packet} />
+    </>
+  );
 }
