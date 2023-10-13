@@ -48,6 +48,16 @@ export function Sender({ packet }: Props) {
     ]);
   }
 
+  function sendFlex() {
+    try {
+        sendLiffMessage(packet.token, [
+            JSON.parse(data.FlexMessage),
+        ]);
+    }catch(e) {
+        alert("形式に問題が有ります。")
+    } 
+  }
+
   return (
     <>
       <Tooltip>
@@ -97,9 +107,7 @@ export function Sender({ packet }: Props) {
               </button>
               <button
                 className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
-                onClick={() => {
-                  sendLiffMessage(packet.token, JSON.parse(data.FlexMessage));
-                }}
+                onClick={sendFlex}
               >
                 送信
               </button>
