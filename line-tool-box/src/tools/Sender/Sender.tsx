@@ -12,29 +12,31 @@ export function Sender({ packet }: Props) {
   const [data, setData] = useState({
     StaticMessage: "Hello @amex2189!",
     FlexMessage: `{
-        type: "flex",
-        altText: "temp",
-        contents: {
-            "type": "bubble",
-            "body": {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "This is a FlexMessage",
-                  "contents": [],
-                  "size": "lg",
-                  "style": "italic"
-                },
-                {
-                  "type": "text",
-                  "text": "temp by @amex2189",
-                  "color": "#00AA00"
-                }
-              ]
-            }
-        }`.trim(),
+        "type": "flex",
+        "altText": "temp",
+        "contents": {
+          "type": "bubble",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "This is a FlexMessage",
+                "contents": [],
+                "size": "lg",
+                "style": "italic"
+              },
+              {
+                "type": "text",
+                "text": "temp by @amex2189",
+                "color": "#00AA00"
+              }
+            ]
+          }
+        }
+      }
+      `.trim(),
   });
 
   function sendStatic() {
@@ -87,8 +89,8 @@ export function Sender({ packet }: Props) {
                 onClick={() => {
                   setData({
                     ...data,
-                    FlexMessage: formatJSON(data.FlexMessage)
-                  })
+                    FlexMessage: formatJSON(data.FlexMessage),
+                  });
                 }}
               >
                 整形
