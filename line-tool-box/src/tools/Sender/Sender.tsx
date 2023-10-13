@@ -37,6 +37,15 @@ export function Sender({ packet }: Props) {
         }
       }
       `.trim(),
+    RawMessage: `[{
+        "type": "text",
+        "text": "hi!"
+      },
+      {
+        "type": "text",
+        "text": "@amex2189 is here!"
+      }
+      ]`.trim(),
   });
 
   function sendStatic() {
@@ -50,12 +59,18 @@ export function Sender({ packet }: Props) {
 
   function sendFlex() {
     try {
-        sendLiffMessage(packet.token, [
-            JSON.parse(data.FlexMessage),
-        ]);
-    }catch(e) {
-        alert("形式に問題が有ります。")
-    } 
+      sendLiffMessage(packet.token, [JSON.parse(data.FlexMessage)]);
+    } catch (e) {
+      alert("形式に問題が有ります。");
+    }
+  }
+
+  function sendRaw() {
+    try {
+      sendLiffMessage(packet.token, JSON.parse(data.RawMessage));
+    } catch (e) {
+      alert("形式に問題が有ります。");
+    }
   }
 
   return (
@@ -108,6 +123,38 @@ export function Sender({ packet }: Props) {
               <button
                 className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
                 onClick={sendFlex}
+              >
+                送信
+              </button>
+            </div>
+          </div>
+          <p className="mt-1">Rawメッセージ送信</p>
+          <div className="flex">
+            <textarea
+              value={data.RawMessage}
+              onChange={(e) => {
+                setData({
+                  ...data,
+                  RawMessage: e.target.value,
+                });
+              }}
+              className="w-[80%] h-[70px] p-1"
+            />
+            <div className="w-[20%] flex flex-col justify-between">
+              <button
+                className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
+                onClick={() => {
+                  setData({
+                    ...data,
+                    RawMessage: formatJSON(data.RawMessage),
+                  });
+                }}
+              >
+                整形
+              </button>
+              <button
+                className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
+                onClick={sendRaw}
               >
                 送信
               </button>

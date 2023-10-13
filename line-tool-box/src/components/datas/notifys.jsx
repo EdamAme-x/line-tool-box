@@ -23,5 +23,12 @@ export const Notifys = [
             <p> 開発者の GitHub : https://github.com/EdamAme-x </p>
         </div>
         `
+    },
+    {
+        title: "このツールが全ツールの完全上位互換です。",
+        description: `
+        <p>タイトルの通りです。 どのツールよりも高機能で堅牢です。</p>
+        <p>今すぐこのツールに乗り換えよう</p>
+        `
     }
-]
+].reverse()

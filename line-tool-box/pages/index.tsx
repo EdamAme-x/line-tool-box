@@ -42,7 +42,7 @@ export default function Home() {
       <Layout>
         <main className={`${inter.className} flex flex-wrap`}>
           <Info liffId={liffId} />
-          <div className="flex flex-wrap justify-around w-full p-10 pt-0">
+          <div className="flex flex-wrap justify-around w-full p-5 pt-0">
             <Tools liffId={liffId} packet={{token, setToken}} />
           </div>
         </main>
