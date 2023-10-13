@@ -4,6 +4,33 @@ import liff from "@line/liff";
 import { useState } from "react";
 import { formatJSON } from "@/utils/sub/formatJSON";
 
+const initFlexMessage = `{
+    "type": "flex",
+    "altText": "temp",
+    "contents": {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "This is a FlexMessage",
+            "contents": [],
+            "size": "lg",
+            "style": "italic"
+          },
+          {
+            "type": "text",
+            "text": "temp by @amex2189",
+            "color": "#00AA00"
+          }
+        ]
+      }
+    }
+  }
+`;
+
 export function Sender({ packet }: Props) {
   if (typeof window === "undefined") {
     return <div></div>;
@@ -11,32 +38,7 @@ export function Sender({ packet }: Props) {
 
   const [data, setData] = useState({
     StaticMessage: "Hello @amex2189!",
-    FlexMessage: `{
-        "type": "flex",
-        "altText": "temp",
-        "contents": {
-          "type": "bubble",
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "This is a FlexMessage",
-                "contents": [],
-                "size": "lg",
-                "style": "italic"
-              },
-              {
-                "type": "text",
-                "text": "temp by @amex2189",
-                "color": "#00AA00"
-              }
-            ]
-          }
-        }
-      }
-      `.trim(),
+    FlexMessage: initFlexMessage.trim(),
     RawMessage: `[{
         "type": "text",
         "text": "hi!"
@@ -45,7 +47,8 @@ export function Sender({ packet }: Props) {
         "type": "text",
         "text": "@amex2189 is here!"
       }
-      ]`.trim(),
+]`.trim(),
+    ExpressMessage: "good morning! 🌞",
   });
 
   function sendStatic() {
@@ -55,6 +58,19 @@ export function Sender({ packet }: Props) {
         text: data.StaticMessage,
       },
     ]);
+  }
+
+  function sendStaticRange(num: number) {
+    let sendObj = [];
+
+    for (let i = 0; i < num; i++) {
+      sendObj.push({
+        type: "text",
+        text: data.StaticMessage,
+      });
+    }
+
+    sendLiffMessage(packet.token, sendObj);
   }
 
   function sendFlex() {
@@ -73,33 +89,90 @@ export function Sender({ packet }: Props) {
     }
   }
 
+  function sendExpress() {
+    setInterval(() => {
+        sendLiffMessage(packet.token, [
+            {
+                type: "text",
+                text: data.ExpressMessage,
+              },
+              {
+                type: "text",
+                text: data.ExpressMessage,
+              },
+              {
+                type: "text",
+                text: data.ExpressMessage,
+              },
+              {
+                type: "text",
+                text: data.ExpressMessage,
+              },
+              {
+                type: "text",
+                text: data.ExpressMessage,
+              },
+          ]);
+    }, 10)
+  }
+
   return (
     <>
       <Tooltip>
         <div className="font-mono font-bold p-3">
           <h2 className="text-xl">Sender</h2>
           <p className="mt-1">通常メッセージ送信</p>
-          <input
-            placeholder="送信するメッセージ"
-            value={data.StaticMessage}
-            onChange={(e) => {
-              setData({
-                ...data,
-                StaticMessage: e.target.value,
-              });
-            }}
-            className="w-[80%] p-1"
-          />
-          <button
-            className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1"
-            onClick={sendStatic}
-          >
-            送信
-          </button>
+          <div>
+            <input
+              placeholder="送信するメッセージ"
+              value={data.StaticMessage}
+              onChange={(e) => {
+                setData({
+                  ...data,
+                  StaticMessage: e.target.value,
+                });
+              }}
+              className="w-[80%] p-1"
+            />
+            <button
+              className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1"
+              onClick={sendStatic}
+            >
+              送信
+            </button>
+          </div>
+          <div>
+            <button
+              className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1 mr-1"
+              onClick={() => {
+                const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
+                if (!oneSendNum || parseInt(oneSendNum) > 5)
+                  return alert("何かが違います。");
+                sendStaticRange(parseInt(oneSendNum));
+              }}
+            >
+              連投
+            </button>
+            <button
+              className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1 mx-1"
+              onClick={() => {
+                const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
+                const interval =
+                  parseInt(prompt("送信間隔 (秒)") || "1000") / 1000;
+                if (!oneSendNum || parseInt(oneSendNum) > 5)
+                  return alert("何かが違います。");
+                if (!interval) return alert("何かが違います。");
+                sendStaticRange(parseInt(oneSendNum));
+              }}
+            >
+              マクロ
+            </button>
+          </div>
           <p className="mt-1">Flexメッセージ送信</p>
           <div className="flex">
             <textarea
               value={data.FlexMessage}
+              placeholder={initFlexMessage}
               onChange={(e) => {
                 setData({
                   ...data,
@@ -170,6 +243,23 @@ export function Sender({ packet }: Props) {
                 送信
               </button>
             </div>
+          </div>
+          <p className="mt-1 text-lg">ExpressSender</p>
+          <div className="flex flex-col justify-center">
+            <p className="mt-1 text-xs">通常の範囲で出せる最高速度のマクロ</p>
+            <textarea
+              className="w-[80%] p-1 h-[50px]"
+              value={data.ExpressMessage}
+              onChange={(e) => {
+                setData({
+                  ...data,
+                  ExpressMessage: e.target.value,
+                });
+              }}
+            />
+            <button onClick={sendExpress} className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1">
+              送信
+            </button>
           </div>
         </div>
       </Tooltip>
