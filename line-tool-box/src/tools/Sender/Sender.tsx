@@ -35,6 +35,7 @@ export function Sender({ packet }: Props) {
               ]
             }
         }
+      }
     }`.trim(),
   });
 
