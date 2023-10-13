@@ -196,6 +196,7 @@ export function Sender({ packet }: Props) {
               <button
                 className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
                 onClick={() => {
+                  if (!prompt("テンプレートを使用しますか？")) re
                   setData({
                     ...data,
                     FlexMessage: initFlexMessage.trim(),
