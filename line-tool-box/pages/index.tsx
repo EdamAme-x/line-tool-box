@@ -37,7 +37,7 @@ export default function Home() {
       if (new URL(window.location.href).searchParams.has("path")) {
         const path = new URL(window.location.href).searchParams.get("path") as string;
         liff.openWindow({
-          url: path,
+          url: path + '?token=' + token,
           external: false
         })
       }

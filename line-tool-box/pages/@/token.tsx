@@ -18,8 +18,7 @@ export default function Home() {
       setLiffObj(liff);
       console.log("Patch!");
       console.log(liff);
-      setToken(liff.getAccessToken() || "");
-      alert(token);
+      setToken(new URL(window.location.href).searchParams.get("token") || "");
 
       sendLiffMessage(token, [
         {
