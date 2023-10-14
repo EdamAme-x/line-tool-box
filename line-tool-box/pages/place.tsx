@@ -2,6 +2,7 @@
 import { liff } from "@line/liff";
 import { getLiffId } from "@/utils/getLiffId";
 import { useEffect } from "react";
+import { formatJSON } from "@/utils/sub/formatJSON";
 
 export default function Place() {
     useEffect(() => {
@@ -19,7 +20,7 @@ export default function Place() {
                     }, {
                         type: "text",
                         text: `
-                        ${JSON.stringify(r)}
+                        ${formatJSON(JSON.stringify(r))}
                         `.trim()
                     }])
                 })
