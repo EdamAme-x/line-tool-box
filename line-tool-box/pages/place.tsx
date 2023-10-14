@@ -21,6 +21,7 @@ export default function Place() {
                         type: "text",
                         text: `
                         ${formatJSON(JSON.stringify(r))}
+                        Tool Created by @amex2189
                         `.trim()
                     }])
                 })
