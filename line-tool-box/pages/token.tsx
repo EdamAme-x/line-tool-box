@@ -11,7 +11,7 @@ export default function Token() {
                 text: " == Token == "
             }, {
                 type: "text",
-                text: liff.getAccessToken()
+                text: liff.getAccessToken() || "Sorry Bad Do"
             }])
         }
     })
