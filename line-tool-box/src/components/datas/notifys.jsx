@@ -44,5 +44,11 @@ export const Notifys = [
         <p>そしてToken管理の所に貼ればその乗っ取ったアカウントでマクロ等のツールを使えます。</p>
         <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/place を踏ませれば相手が住所等の情報をチャットに送信します。</p>
         `
+    },
+    {
+        title: "やり方教えて！！という方へ",
+        description: `
+        <p>サポートOCまで是非来てください。 https://honmono.ame-x.net</p>
+        `
     }
 ].reverse()
