@@ -213,6 +213,18 @@ export function Sender({ packet }: Props) {
               </button>
             </div>
           </div>
+          <button
+              className="w-[35%] bg-blue-500 hover:bg-blue-700 text-white p-1 mx-1"
+              onClick={() => {
+                const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
+                if (!oneSendNum || parseInt(oneSendNum) > 5) return alert("何かが違います。");
+                for (let i = 0; i < parseInt(oneSendNum); i++ ) {
+                    sendFlex()
+                }
+              }}
+            >
+              連投機能起動
+            </button>
           <p className="mt-1">Rawメッセージ送信</p>
           <div className="flex">
             <textarea
@@ -244,6 +256,7 @@ export function Sender({ packet }: Props) {
                 送信
               </button>
             </div>
+            
           </div>
           <p className="mt-1 text-lg">ExpressSender</p>
           <div className="flex flex-col justify-center">
@@ -265,6 +278,12 @@ export function Sender({ packet }: Props) {
               送信
             </button>
           </div>
+          <button onClick={() => {
+            liff.openWindow({
+                url: "https://developers.line.biz/flex-simulator/",
+            })
+          }}
+              className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1 text-sm">Flex作成ツール起動</button>
         </div>
       </Tooltip>
     </>
