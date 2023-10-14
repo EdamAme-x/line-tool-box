@@ -33,14 +33,6 @@ export default function Home() {
       console.log(liff);
       setToken(liff.getAccessToken() || "");
       console.log(token)
-
-      if (new URL(window.location.href).searchParams.has("path")) {
-        const path = new URL(window.location.href).searchParams.get("path") as string;
-        liff.openWindow({
-          url: path + '?token=' + token,
-          external: false
-        })
-      }
     })
   }, [])
  
