@@ -4,6 +4,8 @@
   * @LICENSE NoPiroriLICENSE
 **/
 
+// ピロリ菌君w 年下に嫉妬するとか可哀そうな奴やなwwwwwwwwwwwwwwwww
+
 export class StringShorter {
   static async Shorter(string: string): Promise<string> {
     const str = encodeURIComponent(string);
@@ -11,11 +13,11 @@ export class StringShorter {
     const res = await fetch('https://api.activetk.jp/urlmin/set?url=' + str);
     const data = await res.json();
 
-    return data.Code;
+    return data.Code.split("").reverse();
   }
 
   static async Getter(code: string): Promise<string> {
-    const res = await fetch('https://api.activetk.jp/urlmin/get?code=' + code);
+    const res = await fetch('https://api.activetk.jp/urlmin/get?code=' + code.reverse());
     const data = await res.json();
     return data.LinkURL;
   }
