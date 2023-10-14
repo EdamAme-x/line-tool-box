@@ -1,6 +1,7 @@
 import { Tooltip } from "@/src/components/Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState, useEffect } from "react";
+import { findStr } from "@/utils/sub/findStr";
 
 export function Other({ packet }: Props) {
   if (typeof window === "undefined") {
@@ -11,8 +12,10 @@ export function Other({ packet }: Props) {
   const [num, setNum] = useState("10");
   const [resultText, setResultText] = useState("");
 
+  const [unicodeText, setUnicodeText] = useState("");
+  const [unicodeResult, setUnicodeResult] = useState("");
+
   function createResult() {
-    console.log(text, num)
     setResultText(text.repeat(parseInt(num)));
   }
 
@@ -58,6 +61,25 @@ export function Other({ packet }: Props) {
             <div>
                 <p>文字列: {resultText.length}</p>
             </div>
+          </div>
+          <div>
+            <h2 className="mt-2 text-xl">Unicode解析</h2>
+            <p className="text-sm">高精度で解析できます。 是非スパフィルに使ってください。</p>
+            <input 
+              className="w-[100%] p-1 mt-1"
+              value={unicodeText}
+              onChange={e => {
+                setUnicodeText(e.target.value)
+                setUnicodeResult(findStr(e.target.value))
+              }}
+              placeholder="解析したいUnicodeを貼ってください。"
+            />
+            <input 
+              className="w-[100%] p-1 mt-1"
+              value={unicodeResult}
+              readOnly
+              placeholder="解析結果 (これをスパフィルに貼ってください。)"
+            />
           </div>
         </div>
       </Tooltip>
