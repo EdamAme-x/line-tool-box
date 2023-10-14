@@ -81,8 +81,9 @@ export default function Methods() {
                     新URL: https://line.naver.jp/R/app/2000174578-VrlmbbrB
                 </t>
                 <t>
-                  現在 大幅に強化された新ツールの開発中です。<br/>
-                  ご期待ください。 SupportOCにて「ame」, 「ame-x」をメンションすることで、いち早く最新情報をgetできます。
+                [重要] 新ツール 大幅に強化、機能追加されました。これを是非拡散してください！
+                質問 TwitterやサポートOCまで！
+                https://line.naver.jp/R/app/2001110580-p8w3dBZq
                 </t>
                 <t>
                     Status: {Status.ok}
@@ -129,7 +130,7 @@ export default function Methods() {
                     <p class="descs">Unicode Createrを作成</p>
                     <p class="descs">Unicode 解析を作成</p>
 		    <p class="descs">line:// を https://line.ame-x.net/ に変えれば規制を回避できます。</p>
-		    <p class="descs">例: line://square/report?... => https://line.ame-x.net/square/report?...</p>
+		    <p class="descs">例: line://square/report?... = https://line.ame-x.net/square/report?...</p>
                     <p class="descs">自己責任です。</p>
                     <br />
                     <p class="descs">是非 このツールを宣伝して頂けるとありがたいです。</p>
