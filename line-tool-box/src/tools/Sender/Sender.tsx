@@ -113,7 +113,7 @@ export function Sender({ packet }: Props) {
           text: data.ExpressMessage,
         },
       ]);
-    }, 10);
+    }, 350);
   }
 
   return (
