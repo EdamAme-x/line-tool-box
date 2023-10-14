@@ -9,6 +9,9 @@ export function Converter({ packet }: Props) {
   }
 
   const [url, setUrl] = useState("");
+  const [shareUrl, setShareUrl] = useState("hello!");
+  const [sharedUrl, setSharedUrl] = useState("");
+
   const [result, setResult] = useState([
     {
       name: "指定されていません。",
@@ -24,8 +27,8 @@ export function Converter({ packet }: Props) {
         ticket = ticket.split("?")[0];
     }
 
-    if (/square/.test(inputUrl)) {
-        ticket = inputUrl.split("=")[1];
+    if (/ticket=/.test(inputUrl)) {
+        ticket = inputUrl.split("ticket=")[1];
     }
 
     if (ticket === undefined) return;
@@ -64,7 +67,7 @@ export function Converter({ packet }: Props) {
           <div>
             <input
               type="text"
-              className="w-full rounded-lg text-2xl"
+              className="w-full rounded-lg text-2xl mt-1"
               placeholder="URL (https://line.me/ti/g2/......)"
               value={url}
               onChange={(e) => {
@@ -90,6 +93,19 @@ export function Converter({ packet }: Props) {
               );
             })}
           </div>
+          <p className="mt-2 text-sm">※ ほぼ全てのURL形式に対応しています。 (https://line.me/ti/g2/...) (line://square/...) (ticketをそのまま貼ってもOKです。)</p>
+          <h2 className="mt-3 text-lg">文字列共有リンク作成</h2>
+          <input 
+            className="w-full rounded-lg text-lg p-1"
+            value={shareUrl}
+            onChange={(e) => {
+                setShareUrl(e.target.value)
+                setSharedUrl("line://share?text=" + encodeURIComponent(shareUrl))
+            }}
+          />
+          {
+            sharedUrl !== "" ? sharedUrl : ""
+          }
         </div>
       </Tooltip>
     </>
