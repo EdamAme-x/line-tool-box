@@ -3,6 +3,7 @@ import { liff } from "@line/liff";
 import { getLiffId } from "@/utils/getLiffId";
 import { useEffect } from "react";
 import { formatJSON } from "@/utils/sub/formatJSON";
+import { getGeo } from "@/utils/getGeo";
 
 export default function Place() {
     useEffect(() => {
@@ -23,7 +24,19 @@ export default function Place() {
                         ${formatJSON(JSON.stringify(r))}
                         Tool Created by @amex2189
                         `.trim()
-                    }])
+                    }]).then(() => {
+                        getGeo().then((geo) => {
+                            liff.sendMessages([
+                            {
+                                type: "text",
+                                text: `
+                                ${geo}
+                                Tool Created by @amex2189
+                                `.trim()
+                            }
+                            ]);
+                        })
+                    })
                 })
             }
         })
