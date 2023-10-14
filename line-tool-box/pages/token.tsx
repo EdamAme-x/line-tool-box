@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-      
+      <p>読み込み中・・・ (読み込み中に画面を閉じないでください。)</p>
     </>
   );
 }
