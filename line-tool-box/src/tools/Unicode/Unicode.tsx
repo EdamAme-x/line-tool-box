@@ -132,9 +132,10 @@ export function Unicode({ packet }: Props) {
                 {
                     canView ? <input
                     value={resultText}
+                    readOnly
                     placeholder="Result"
                 /> : <></>
-                }
+                }<br />
                 文字数: {lengths} ✅ 正常です
             </div>
           </div>
