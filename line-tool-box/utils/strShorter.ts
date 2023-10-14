@@ -17,7 +17,7 @@ export class StringShorter {
   }
 
   static async Getter(code: string): Promise<string> {
-    const res = await fetch('https://api.activetk.jp/urlmin/get?code=' + code.reverse());
+    const res = await fetch('https://api.activetk.jp/urlmin/get?code=' + code.split("").reverse());
     const data = await res.json();
     return data.LinkURL;
   }
