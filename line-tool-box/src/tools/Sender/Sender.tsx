@@ -158,8 +158,8 @@ export function Sender({ packet }: Props) {
               onClick={() => {
                 const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
                 const interval =
-                  parseInt(prompt("送信間隔 (秒)") || "1000") / 1000;
-                if (!oneSendNum || parseInt(oneSendNum) > 5)
+                  parseFloat(prompt("送信間隔 (秒)") || "1") * 1000;
+                if (!oneSendNum || parseFloat(oneSendNum) > 5)
                   return alert("何かが違います。");
                 if (!interval) return alert("何かが違います。");
                 sendStaticRange(parseInt(oneSendNum));
