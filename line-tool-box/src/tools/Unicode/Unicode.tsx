@@ -9,6 +9,8 @@ export function Unicode({ packet }: Props) {
 
   const [baseText, setBaseText] = useState("unico");
   const [unicoText, setUnicoText] = useState("జ్ఞా");
+  const [canView, setCanView] = useState(false);
+  const [resultText, setResultText] = useState("");
 
   return (
     <>
@@ -40,6 +42,25 @@ export function Unicode({ packet }: Props) {
               <button className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1 text-xs mt-1">
                 Unicodeの文字一覧とテンプレートを見る
               </button>
+            </div>
+            <div className="mt-1">
+                <div>
+                    <input
+                        className="mt-2 text-xs"
+                        type="checkbox" 
+                        checked={canView}
+                        id="c"
+                        onClick={() => setCanView(!canView)}
+                    /> <label htmlFor="c">
+                        結果を表示する (処理が重くなる場合が有ります。)
+                    </label>
+                </div>
+            </div>
+            <div>
+                <input
+                    value={resultText}
+                    placeholder="Result"
+                />
             </div>
           </div>
         </div>
