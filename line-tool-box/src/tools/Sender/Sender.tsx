@@ -167,14 +167,6 @@ export function Sender({ packet }: Props) {
             >
               マクロ機能起動
             </button>
-            <button
-              className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1 mt-1 text-xs"
-              onClick={() => {
-                window.location.href = "https://line.me/R/nv/chat";
-              }}
-            >
-                閉じる (閉じてもマクロし続けてくれます。 Android限定)
-            </button>
           </div>
           <p className="mt-1">Flexメッセージ送信</p>
           <div className="flex">
