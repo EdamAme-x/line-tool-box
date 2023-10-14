@@ -2,7 +2,7 @@ import { Tooltip } from "@/src/components/Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState } from "react";
 
-export function Templarte({ packet }: Props) {
+export function Template({ packet }: Props) {
   if (typeof window === "undefined") {
     return <div></div>;
   }

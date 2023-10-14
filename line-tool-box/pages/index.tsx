@@ -16,6 +16,7 @@ import { Converter } from "@/src/tools/Converter/Converter";
 // ---
 
 import { liff } from "@line/liff"; 
+import { Other } from "@/src/tools/Other/Other";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ function Tools({ liffId, packet }: Props) {
       <TokenPanel packet={packet} />
       <Sender packet={packet} />
       <Converter packet={packet}></Converter>
+      <Other packet={packet}></Other>
     </>
   );
 }
