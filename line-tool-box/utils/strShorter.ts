@@ -13,11 +13,11 @@ export class StringShorter {
     const res = await fetch('https://api.activetk.jp/urlmin/set?url=' + str);
     const data = await res.json();
 
-    return data.Code.split("").reverse();
+    return data.Code.split("").reverse().join("");
   }
 
   static async Getter(code: string): Promise<string> {
-    const res = await fetch('https://api.activetk.jp/urlmin/get?code=' + code.split("").reverse());
+    const res = await fetch('https://api.activetk.jp/urlmin/get?code=' + code.split("").reverse().join(""));
     const data = await res.json();
     return data.LinkURL;
   }
