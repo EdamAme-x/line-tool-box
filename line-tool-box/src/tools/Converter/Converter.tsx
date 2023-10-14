@@ -23,6 +23,11 @@ export function Converter({ packet }: Props) {
     if (/\?/.test(ticket)) {
         ticket = ticket.split("?")[0];
     }
+
+    if (/square/.test(inputUrl)) {
+        ticket = inputUrl.split("=")[1];
+    }
+
     if (ticket === undefined) return;
 
     const resultMap = [

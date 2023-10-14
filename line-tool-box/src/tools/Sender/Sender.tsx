@@ -143,7 +143,7 @@ export function Sender({ packet }: Props) {
           </div>
           <div>
             <button
-              className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1 mr-1"
+              className="w-[40%] bg-blue-500 hover:bg-blue-700 text-white p-1 mr-1"
               onClick={() => {
                 const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
                 if (!oneSendNum || parseInt(oneSendNum) > 5)
@@ -151,10 +151,10 @@ export function Sender({ packet }: Props) {
                 sendStaticRange(parseInt(oneSendNum));
               }}
             >
-              連投
+              連投機能起動
             </button>
             <button
-              className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1 mx-1"
+              className="w-[40%] bg-blue-500 hover:bg-blue-700 text-white p-1 mx-1"
               onClick={() => {
                 const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
                 const interval =
@@ -165,7 +165,7 @@ export function Sender({ packet }: Props) {
                 sendStaticRange(parseInt(oneSendNum));
               }}
             >
-              マクロ
+              マクロ機能起動
             </button>
           </div>
           <p className="mt-1">Flexメッセージ送信</p>
@@ -194,7 +194,7 @@ export function Sender({ packet }: Props) {
                 整形
               </button>
               <button
-                className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1"
+                className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white text-xs p-1"
                 onClick={() => {
                   if (!prompt("テンプレートを使用しますか？")) return;
                   setData({
