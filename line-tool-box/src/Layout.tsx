@@ -10,17 +10,6 @@ export default function Layout(props: { children: React.ReactNode }) {
   const githubIcon = "/svg/github.svg";
   const twitterIcon = "/svg/twitter.svg";
 
-  if (typeof window !== undefined) {
-    if (new URL(window.location.href).searchParams.has("page")) {
-      const page = new URL(window.location.href).searchParams.get("page") || "";
-      if (page === "token") {
-        liff.openWindow({
-          url: window.location.host + "/" + page, // Fixed concatenation
-        });
-      }
-    }
-  }
-
   return (
     <div className={css.layout}>
       <header>

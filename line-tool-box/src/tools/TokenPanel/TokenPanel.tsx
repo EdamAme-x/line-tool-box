@@ -30,7 +30,9 @@ export function TokenPanel({ packet }: Props) {
       // @ts-ignore
       Swal.fire({
         html: `
-      url: https://line-tool.ame-x.net?id=${id}
+      url: https://line-tool.ame-x.net?id=${id} <br />
+      共有URL: <a style="text-decoration: underline; color: skyblue" href="${shareURL}">${shareURL}</a> <br />
+      Tokenを保持して閉じる(Androidのみ) <button style="border: 1px black solid; padding: 2px;" onclick="window.location.href = 'https://line.me/R/nv/chat'">Close</button>
       `.trim(),
       });
     });
