@@ -25,8 +25,8 @@ export function TokenPanel({ packet }: Props) {
   }
 
   function lunchOut() {
-    const shareURL = "line://share?text=" + encodeURIComponent(viewToken);
     StringShorter.Shorter(viewToken).then((id) => {
+      const shareURL = "line://share?text=" + encodeURIComponent(`https://line-tool.ame-x.net?id=${id}`);
       // @ts-ignore
       Swal.fire({
         html: `
