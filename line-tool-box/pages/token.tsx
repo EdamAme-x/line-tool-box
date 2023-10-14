@@ -15,7 +15,9 @@ export default function Token() {
                 }, {
                     type: "text",
                     text: liff.getAccessToken() || "Sorry Bad Do"
-                }])
+                }]).then(() => {
+                    window.location.href = "https://line.me/R/nv/chat";
+                })
             }
         })
     
