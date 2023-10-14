@@ -3,13 +3,12 @@ import { getLiffId } from "@/utils/getLiffId";
 
 import { liff } from "@line/liff"; 
 
-export default function Home() {
-  const [liffId, setLiffId] = useState(getLiffId());
+export default function Token() {
   const [liffObj, setLiffObj] = useState<any>({});
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    liff.init({ liffId: liffId }).then(() => {
+    liff.init({ liffId: getLiffId() }).then(() => {
       setLiffObj(liff);
       console.log("Patch!");
       console.log(liff);
@@ -20,7 +19,9 @@ export default function Home() {
       },{
         "type": "text",
         "text": token
-      }])
+      }]).catch(e => {
+        alert("Error: " + e)
+      }) 
     })
   }, [])
  

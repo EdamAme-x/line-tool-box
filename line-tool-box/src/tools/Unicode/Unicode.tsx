@@ -12,6 +12,7 @@ export function Unicode({ packet }: Props) {
       <Tooltip>
         <div className="font-mono font-bold p-3">
           <h2 className="text-xl">Unicode Sender / Creater</h2>
+          <p>Coming soon..</p>
         </div>
       </Tooltip>
     </>
