@@ -2,6 +2,7 @@ import { Tooltip } from "@/src/components/Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState, useEffect } from "react";
 import { findStr } from "@/utils/sub/findStr";
+import { sendLiffMessage } from "@/utils/sendMessage";
 
 export function Other({ packet }: Props) {
   if (typeof window === "undefined") {
@@ -80,6 +81,40 @@ export function Other({ packet }: Props) {
               readOnly
               placeholder="解析結果 (これをスパフィルに貼ってください。)"
             />
+          </div>
+          <div>
+            <h2 className="mt-2 text-xl">改行砲</h2>
+            <p>物凄く長いメッセージを出力します。</p>
+            <button
+            className="w-[20%] bg-blue-500 hover:bg-blue-700 text-white p-1"
+            onClick={() => {
+              sendLiffMessage(packet.token, [
+                JSON.parse(`
+                {
+                    "type": "flex",
+                    "altText": "Flex Bomb - Dev:Amex",
+                    "contents": {
+                      "type": "bubble",
+                      "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "weight": "bold",
+                            "wrap": true,
+                            "text": "@amex2189 \\n ${"\\n".repeat(9900)}",
+                            "size": "3xl",
+                            "margin": "md",
+                            "lineSpacing": "19999px"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                `)
+              ])
+            }}>Send</button>
           </div>
         </div>
       </Tooltip>
