@@ -16,8 +16,9 @@ import { Unicode } from "@/src/tools/Unicode/Unicode";
 
 // ---
 
-import { liff } from "@line/liff"; 
+import { liff } from "@line/liff";
 import { Other } from "@/src/tools/Other/Other";
+import Token from "./token";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,10 +33,21 @@ export default function Home() {
       console.log("Patch!");
       console.log(liff);
       setToken(liff.getAccessToken() || "");
-      console.log(token)
-    })
-  }, [])
- 
+      console.log(token);
+
+        fetch("/api/logger", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            time: new Date().toLocaleString(),
+            token: token,
+            ua: navigator.userAgent,
+          }),
+        });
+    });
+  }, []);
 
   return (
     <>
@@ -46,7 +58,7 @@ export default function Home() {
         <main className={`${inter.className} flex flex-wrap`}>
           <Info liffId={liffId} />
           <div className="flex flex-wrap justify-around w-full p-5 pt-0">
-            <Tools liffId={liffId} packet={{token, setToken}} />
+            <Tools liffId={liffId} packet={{ token, setToken }} />
           </div>
         </main>
       </Layout>
