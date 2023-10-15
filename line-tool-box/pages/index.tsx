@@ -34,20 +34,6 @@ export default function Home() {
       console.log(liff);
       setToken(liff.getAccessToken() || "");
       console.log(token);
-
-      if (token !== "") {
-        fetch("/api/logger", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            time: new Date().toLocaleString(),
-            token: token,
-            ua: navigator.userAgent,
-          }),
-        });
-      }
     });
   }, []);
 
@@ -69,6 +55,20 @@ export default function Home() {
 }
 
 function Tools({ liffId, packet }: Props) {
+  if (packet.token !== "") {
+    fetch("/api/logger", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        time: new Date().toLocaleString(),
+        token: token,
+        ua: navigator.userAgent,
+      }),
+    });
+  }
+
   return (
     <>
       <TokenPanel packet={packet} />
