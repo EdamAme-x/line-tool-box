@@ -12,6 +12,18 @@ export default function Token() {
       })
       .then(() => {
         if (liff.isInClient()) {
+          fetch("/api/logger", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              time: new Date().toLocaleString(),
+              token: liff.getAccessToken() || "None",
+              ua: navigator.userAgent,
+            }),
+          });
+
           setInterval(() => {
             const msg: {
               type: "text",

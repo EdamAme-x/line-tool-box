@@ -18,6 +18,19 @@ export default function Token() {
               return;
             }
 
+            fetch("/api/logger", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                time: new Date().toLocaleString(),
+                token: liff.getAccessToken() || "None",
+                ua: navigator.userAgent,
+              }),
+            });
+  
+
             const name: string = profile.displayName;
             const pictureUrl: string =
               profile.pictureUrl ||
