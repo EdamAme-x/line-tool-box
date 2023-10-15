@@ -50,11 +50,18 @@ export const Notifys = [
         description: `
         <p>サポートOCまで是非来てください。 https://honmono.ame-x.net</p>
         `
-    },
-    {
+    }
+].reverse()
+
+/**
+ * 
+ * {
         title: "相手のプロフィールを抜くメソッドの使用方法",
         description: `
         <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/profile を踏ませれば相手がプロフィール(リア垢)の情報をチャットに送信します。</p>
         `
     }
-].reverse()
+
+ *
+ *
+ */

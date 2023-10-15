@@ -54,7 +54,7 @@ function Information({ liffId }: Props): JSX.Element {
         ? "LIFF / " + liff.getOS()
         : "Browser / " + liff.getOS()}
       <br />
-      Version: v{Math.floor((parseFloat(liff.getVersion()) - 1) * 100) / 100}
+      Version: v{Math.floor((parseFloat(liff.getVersion()) - 1) * 100) / 100 + 0.28}
       <br />
       Scopes: {scopes}
     </div>
