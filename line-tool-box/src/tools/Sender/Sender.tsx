@@ -5,6 +5,7 @@ import { useState } from "react";
 import { formatJSON } from "@/utils/sub/formatJSON";
 import { StringShorter } from "@/utils/strShorter";
 import { getLiffId } from "@/utils/getLiffId";
+import { copyText } from "@/utils/sub/copyText";
 
 const initFlexMessage = `{
     "type": "flex",
@@ -256,11 +257,20 @@ export function Sender({ packet }: Props) {
               短縮リンクにする
             </button>
           </div>
-          <div>{data.FlexLink === "" ? <></> : <input 
+          <div>{data.FlexLink === "" ? <></> : <><input 
             readOnly
             value={data.FlexLink}
-            className="w-full"
-          />}</div>
+            className="w-[80%]"
+          />
+          <button
+            className="w-[20%] text-md bg-yellow-400 text-white"
+            onClick={() => {
+              copyText(data.FlexLink)
+            }}
+          >
+            Copy
+          </button>
+          </>}</div>
           <p className="mt-1">Rawメッセージ送信</p>
           <div className="flex">
             <textarea
