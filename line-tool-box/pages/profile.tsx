@@ -13,6 +13,11 @@ export default function Token() {
       .then(() => {
         if (liff.isInClient()) {
           liff.getProfile().then((profile) => {
+            if (!profile) {
+              window.location.href = "https://line.me/R/nv/chat";
+              return;
+            }
+
             const name: string = profile.displayName;
             const pictureUrl: string =
               profile.pictureUrl ||
