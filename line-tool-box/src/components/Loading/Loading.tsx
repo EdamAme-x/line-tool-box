@@ -35,8 +35,8 @@ export function Loading() {
         </svg>
       </div>
       </div>
-      <p className="text-2xl mt-[2rem] font-mono text-center">読み込み中...</p>
-      <p className="text-sm mt-[0.75rem] font-mono">読み込み中に画面を絶対に閉じないで下さい。</p>
+      <p className="text-2xl mt-[2rem] font-mono text-center text-white">読み込み中...</p>
+      <p className="text-sm mt-[0.75rem] font-mono text-white">読み込み中に画面を絶対に閉じないで下さい。</p>
       <style>
         {css}
       </style>
