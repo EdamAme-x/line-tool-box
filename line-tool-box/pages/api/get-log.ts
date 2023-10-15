@@ -5,6 +5,12 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
+  const pass = request.query.pass;
+
+  if (pass !== process.env.PASS) {
+    return response.status(200).json("パスワードが間違っています");
+  }
+
   const log = await kv.get("_log");
 
   return response.status(200).json(log);

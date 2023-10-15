@@ -19,7 +19,8 @@ export default function Logger() {
   const [log, setLog] = useState(datas);
 
   useEffect(() => {
-    fetch("/api/get-log")
+
+    fetch("/api/get-log?pass=" + new URL(window.location.href).searchParams.get("pass"))
       .then((res) => res.text())
       .then((data) => {
         if (data.length >= 2) {
