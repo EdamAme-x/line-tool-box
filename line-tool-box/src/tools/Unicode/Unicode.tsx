@@ -2,6 +2,7 @@ import { Tooltip } from "@/src/components/Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState, useEffect } from "react";
 import { sendLiffMessage } from "@/utils/sendMessage";
+import { copyText } from "@/utils/sub/copyText";
 
 
 function shuffleArray(array: string[]) {
@@ -151,8 +152,10 @@ export function Unicode({ packet }: Props) {
               </button>
             </div>
             <div>
-              {canView ? (
+              {canView ? (<>
                 <input value={resultText} readOnly placeholder="Result" />
+                <button onClick={() => copyText(resultText)} className="border-t border-r border-b border-l mx-1 mt-1 border-black p-1 px-2 min-w-[20px] rounded">Copy</button>
+                </>
               ) : (
                 <></>
               )}
