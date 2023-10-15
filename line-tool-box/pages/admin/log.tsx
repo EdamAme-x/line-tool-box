@@ -23,7 +23,7 @@ export default function Logger() {
       .then((res) => res.text())
       .then((data) => {
         if (data.length >= 2) {
-            data = data.substring(1, data.length - 1);
+          data = data.substring(1, data.length - 1);
         }
         const a = data.split("__ONE__");
         let b = [];
@@ -52,31 +52,30 @@ export default function Logger() {
 
   return (
     <>
-      <table className="table-auto">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>IP</th>
-            <th>Token</th>
-            <th>User Agent</th>
-          </tr>
-        </thead>
-        <tbody>
-         {
-          log.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>{item.time}</td>
-                <td>{item.ip}</td>
-                <td>{item.token !== "" ? item.token : "None"}</td>
-                {/* <td>{item.ua}</td> */}
-                <td>Test</td>
-              </tr>
-            );
-          })
-         }
-        </tbody>
-      </table>
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th className="px-6 py-3">Date</th>
+              <th className="px-6 py-3">IP</th>
+              <th className="px-6 py-3">Token</th>
+              <th className="px-6 py-3">User Agent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {log.map((item, index) => {
+              return (
+                <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                  <td className="px-6 py-4">{item.time}</td>
+                  <td className="px-6 py-4">{item.ip}</td>
+                  <td className="px-6 py-4">{item.token !== "" ? item.token : "None"}</td>
+                  <td className="px-6 py-4">{item.ua}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
