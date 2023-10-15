@@ -3,6 +3,8 @@ import { sendLiffMessage } from "@/utils/sendMessage";
 import liff from "@line/liff";
 import { useState } from "react";
 import { formatJSON } from "@/utils/sub/formatJSON";
+import { StringShorter } from "@/utils/strShorter";
+import { getLiffId } from "@/utils/getLiffId";
 
 const initFlexMessage = `{
     "type": "flex",
@@ -36,6 +38,7 @@ export function Sender({ packet }: Props) {
     return <div></div>;
   }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [data, setData] = useState({
     StaticMessage: "Hello @amex2189!",
     FlexMessage: "",
@@ -49,6 +52,7 @@ export function Sender({ packet }: Props) {
       }
 ]`.trim(),
     ExpressMessage: "good morning! 🌞",
+    FlexLink: ""
   });
 
   function sendStatic() {
@@ -196,7 +200,6 @@ export function Sender({ packet }: Props) {
               <button
                 className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white text-xs p-1"
                 onClick={() => {
-                  if (!prompt("テンプレートを使用しますか？")) return;
                   setData({
                     ...data,
                     FlexMessage: initFlexMessage.trim(),
@@ -213,18 +216,51 @@ export function Sender({ packet }: Props) {
               </button>
             </div>
           </div>
-          <button
-              className="w-[35%] bg-blue-500 hover:bg-blue-700 text-white p-1 mx-1"
+          <div className="flex">
+            <button
+              className="w-[50%] bg-blue-500 hover:bg-blue-700 text-white p-1 mr-1 mt-1"
               onClick={() => {
                 const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
-                if (!oneSendNum || parseInt(oneSendNum) > 5) return alert("何かが違います。");
-                for (let i = 0; i < parseInt(oneSendNum); i++ ) {
-                    sendFlex()
+                if (!oneSendNum || parseInt(oneSendNum) > 5)
+                  return alert("何かが違います。");
+                for (let i = 0; i < parseInt(oneSendNum); i++) {
+                  sendFlex();
                 }
               }}
             >
               連投機能起動
             </button>
+            <button
+              className="w-[50%] bg-green-500 hover:bg-green-700 text-white p-1 ml-1 mt-1"
+              onClick={() => {
+                let flexText = "";
+                try {
+                  flexText = JSON.stringify(JSON.parse(data.FlexMessage));
+                }catch(e) {
+                  alert("何かが違います。");
+                  return false;
+                }
+                if (flexText === "") return alert("何かが違います。");
+                StringShorter.LongShorter(flexText).then((id) => {
+                  setData({
+                    ...data,
+                    FlexLink: ` https://line.naver.jp/R/app/${getLiffId()}?liff.state=/flex/${id}`,
+                  })
+
+                  // StringShorter.LongGetter(id).then((text) => {
+                  //   console.log(text)
+                  // })
+                })
+              }}
+            >
+              短縮リンクにする
+            </button>
+          </div>
+          <div>{data.FlexLink === "" ? <></> : <input 
+            readOnly
+            value={data.FlexLink}
+            className="w-full"
+          />}</div>
           <p className="mt-1">Rawメッセージ送信</p>
           <div className="flex">
             <textarea
@@ -256,7 +292,6 @@ export function Sender({ packet }: Props) {
                 送信
               </button>
             </div>
-            
           </div>
           <p className="mt-1 text-lg">ExpressSender</p>
           <div className="flex flex-col justify-center">
@@ -278,12 +313,16 @@ export function Sender({ packet }: Props) {
               送信
             </button>
           </div>
-          <button onClick={() => {
-            liff.openWindow({
+          <button
+            onClick={() => {
+              liff.openWindow({
                 url: "https://developers.line.biz/flex-simulator/",
-            })
-          }}
-              className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1 text-sm">Flex作成ツール起動</button>
+              });
+            }}
+            className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1 text-sm"
+          >
+            Flex作成ツール起動
+          </button>
         </div>
       </Tooltip>
     </>

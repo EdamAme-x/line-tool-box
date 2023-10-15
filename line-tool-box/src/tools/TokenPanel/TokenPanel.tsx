@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Tooltip } from "@/src/components/Tooltip/Tooltip";
 import liff from "@line/liff";
 import { useState } from "react";
