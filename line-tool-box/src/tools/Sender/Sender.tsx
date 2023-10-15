@@ -312,7 +312,7 @@ export function Sender({ packet }: Props) {
                 if (!oneSendNum || parseInt(oneSendNum) > 5)
                   return alert("何かが違います。");
                 for (let i = 0; i < parseInt(oneSendNum); i++) {
-                  sendFlex();
+                  sendRaw();
                 }
               }}
             >
