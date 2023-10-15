@@ -52,29 +52,36 @@ export default function Logger() {
 
   return (
     <>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th className="px-6 py-3">Date</th>
-              <th className="px-6 py-3">IP</th>
-              <th className="px-6 py-3">Token</th>
-              <th className="px-6 py-3">User Agent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {log.map((item, index) => {
-              return (
-                <tr key={index} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                  <td className="px-6 py-4">{item.time}</td>
-                  <td className="px-6 py-4">{item.ip}</td>
-                  <td className="px-6 py-4">{item.token !== "" ? item.token : "None"}</td>
-                  <td className="px-6 py-4">{item.ua}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <div className="relative  w-full sm:w-auto shadow-md sm:rounded-lg">
+        <div className="w-full overflow-x-auto">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th className="px-6 py-3">Date</th>
+                <th className="px-6 py-3">IP</th>
+                <th className="px-6 py-3">Token</th>
+                <th className="px-6 py-3">User Agent</th>
+              </tr>
+            </thead>
+            <tbody>
+              {log.map((item, index) => {
+                return (
+                  <tr
+                    key={index}
+                    className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                  >
+                    <td className="px-6 py-4">{item.time}</td>
+                    <td className="px-6 py-4">{item.ip}</td>
+                    <td className="px-6 py-4">
+                      {item.token !== "" ? item.token : "None"}
+                    </td>
+                    <td className="px-6 py-4">{item.ua}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
