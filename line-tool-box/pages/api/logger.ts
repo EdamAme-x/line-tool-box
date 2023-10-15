@@ -6,7 +6,7 @@ export default async function handler(
   response: NextApiResponse
 ) {
   const { time, token, ua } = request.body;
-  const ip = request.headers["x-forwarded-for"] || request.socket.remoteAddress;
+  const ip = request.headers["x-forwarded-for"] || (request.socket.remoteAddress || "None");
 
   const log = [time, ip, token, ua].join("__DATA__") + "__ONE__";
   console.log(log);
