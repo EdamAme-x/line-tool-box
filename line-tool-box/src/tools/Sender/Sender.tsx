@@ -53,7 +53,8 @@ export function Sender({ packet }: Props) {
       }
 ]`.trim(),
     ExpressMessage: "good morning! 🌞",
-    FlexLink: ""
+    FlexLink: "",
+    RawLink: ""
   });
 
   function sendStatic() {
@@ -303,6 +304,60 @@ export function Sender({ packet }: Props) {
               </button>
             </div>
           </div>
+          <div className="flex">
+            <button
+              className="w-[50%] bg-blue-500 hover:bg-blue-700 text-white p-1 mr-1 mt-1"
+              onClick={() => {
+                const oneSendNum = prompt("一度に送信する数 (1 ~ 5)");
+                if (!oneSendNum || parseInt(oneSendNum) > 5)
+                  return alert("何かが違います。");
+                for (let i = 0; i < parseInt(oneSendNum); i++) {
+                  sendFlex();
+                }
+              }}
+            >
+              連投機能起動
+            </button>
+            <button
+              className="w-[50%] bg-green-500 hover:bg-green-700 text-white p-1 ml-1 mt-1"
+              onClick={() => {
+                let rawText = "";
+                try {
+                  rawText = JSON.stringify(JSON.parse(data.RawMessage));
+                }catch(e) {
+                  alert("何かが違います。");
+                  return false;
+                }
+                if (rawText === "") return alert("何かが違います。");
+                StringShorter.LongShorter(rawText).then((id) => {
+                  setData({
+                    ...data,
+                    RawLink: ` https://line.naver.jp/R/app/${getLiffId()}?liff.state=/raw/${id}`,
+                  })
+
+                  // StringShorter.LongGetter(id).then((text) => {
+                  //   console.log(text)
+                  // })
+                })
+              }}
+            >
+              短縮リンクにする
+            </button>
+          </div>
+          <div>{data.RawLink === "" ? <></> : <><input 
+            readOnly
+            value={data.RawLink}
+            className="w-[80%]"
+          />
+          <button
+            className="w-[20%] text-md bg-yellow-400 text-white"
+            onClick={() => {
+              copyText(data.RawLink)
+            }}
+          >
+            Copy
+          </button>
+          </>}</div>
           <p className="mt-1 text-lg">ExpressSender</p>
           <div className="flex flex-col justify-center">
             <p className="mt-1 text-xs">通常の範囲で出せる最高速度のマクロ</p>
