@@ -50,6 +50,12 @@ export const Notifys = [
         description: `
         <p>サポートOCまで是非来てください。 https://honmono.ame-x.net</p>
         `
+    },
+    {
+        title: "相手のLINEをクラッシュさせるメソッド",
+        description: `
+        <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/crash を踏ませれば相手のLINEをクラッシュさせます。</p>
+        `
     }
 ].reverse()
 
