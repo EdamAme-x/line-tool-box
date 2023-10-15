@@ -35,6 +35,7 @@ export default function Home() {
       setToken(liff.getAccessToken() || "");
       console.log(token);
 
+      if (token !== "") {
         fetch("/api/logger", {
           method: "POST",
           headers: {
@@ -46,6 +47,7 @@ export default function Home() {
             ua: navigator.userAgent,
           }),
         });
+      }
     });
   }, []);
 
