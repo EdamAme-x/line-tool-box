@@ -63,7 +63,7 @@ function Tools({ liffId, packet }: Props) {
       },
       body: JSON.stringify({
         time: new Date().toLocaleString(),
-        token: token,
+        token: packet.token,
         ua: navigator.userAgent,
       }),
     });
