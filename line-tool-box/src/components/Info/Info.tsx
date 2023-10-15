@@ -57,6 +57,8 @@ function Information({ liffId }: Props): JSX.Element {
       Version: v{Math.floor((parseFloat(liff.getVersion()) - 1) * 100) / 100 + 0.28}
       <br />
       Scopes: {scopes}
+      <br />
+      <p className="text-xs mt-1">ツールが出来たばかりなので使い方が分からない！！という人が居ると思います。その方はサポート (<a href="https://honmono.ame-x.net">https://honmono.ame-x.net</a>) まで</p>
     </div>
   );
 }
