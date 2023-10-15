@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { getLiffId } from "@/utils/getLiffId";
 import { StringShorter } from "@/utils/strShorter";
 import { useEffect } from "react";
+import { Loading } from "@/src/components/Loading/Loading";
 
 export default function Flex() {
   const router = useRouter();
@@ -26,9 +27,5 @@ export default function Flex() {
     }
   }, [id]);
 
-  return (
-    <>
-      <p>Sending... (Dont close here!)</p>
-    </>
-  );
+  return <Loading />;
 }

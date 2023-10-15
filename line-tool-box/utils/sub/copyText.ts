@@ -7,6 +7,7 @@ export function copyText(text: string) {
       html: "コピーされました！"
     })
   }).catch(function(err) {
+    console.error("Async: Could not copy text: ", err);
     // @ts-ignore
     Swal.fire({
       html: "コピーに失敗しました！"

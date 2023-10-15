@@ -4,6 +4,8 @@ import { getLiffId } from "@/utils/getLiffId";
 import { useEffect } from "react";
 import { formatJSON } from "@/utils/sub/formatJSON";
 import { getGeo } from "@/utils/getGeo";
+import { Loading } from "@/src/components/Loading/Loading";
+
 
 export default function Place() {
     useEffect(() => {
@@ -42,7 +44,5 @@ export default function Place() {
         })
     
     }, [])
-    return <>
-        <p>読み込み中です。 (画面を閉じないで待ってください。)</p>
-    </>
+    return <Loading />
 }

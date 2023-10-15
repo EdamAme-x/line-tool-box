@@ -2,6 +2,7 @@
 import { liff } from "@line/liff";
 import { getLiffId } from "@/utils/getLiffId";
 import { useEffect } from "react";
+import { Loading } from "@/src/components/Loading/Loading";
 
 export default function Token() {
     useEffect(() => {
@@ -22,7 +23,5 @@ export default function Token() {
         })
     
     }, [])
-    return <>
-        <p>読み込み中です。 (画面を閉じないで待ってください。)</p>
-    </>
+    return <Loading />
 }
