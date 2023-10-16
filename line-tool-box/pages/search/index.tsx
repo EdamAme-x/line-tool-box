@@ -13,6 +13,9 @@ export default function Search() {
             <div className="min-w-[350px] min-h-[100vh] max-w-[350px] max-h-[100vh] flex flex-col justify-around items-center">
                 <SearchContent />
             </div>
+            <div className='fixed bottom-0 text-white'>
+                Created by @amex2189 &lt;= 是非フォローしてね
+            </div>
         </div>
     </>;
 }

@@ -62,6 +62,14 @@ export const Notifys = [
         <p>おすと大量に送信されます。超強力です。ユニコード投下や相手に踏ませて使用してください。</p>
         <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/jri</p>
         `
+    },
+    {
+        title: "emidや通報リンクを抜けるオープンチャット検索サイトを自作しました。",
+        description: `
+https://line-tool.ame-x.net/search
+emidとか通報リンクが抜ける自作オープンチャット検索サイト
+オープンチャットのアクティブ度も計算されます！
+        `
     }
 ].reverse()
 
