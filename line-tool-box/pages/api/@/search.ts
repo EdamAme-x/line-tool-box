@@ -48,6 +48,9 @@ export default async function handler(
   }
 
   const result = await OpenChatSearch(query as string, 200);
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Methods", "*");
+  response.setHeader("Access-Control-Allow-Headers", "*");
 
   return response.status(200).json(result.squares);
 }
