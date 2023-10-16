@@ -49,5 +49,5 @@ export default async function handler(
 
   const result = await OpenChatSearch(query as string, 200);
 
-  return response.status(200).json(result);
+  return response.status(200).json(result.squares);
 }
