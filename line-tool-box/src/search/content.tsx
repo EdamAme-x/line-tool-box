@@ -87,7 +87,7 @@ export default function SearchContent() {
         </>
       )}
       {showDetail ? (
-        <div className="fixed top-0 w-[90%] max-w-[315px] h-[85vh] mt-[80px] bg-gray-600 rounded-lg shadow-sm shadow-gray-500 flex flex-col items-center justify-around">
+        <div className="fixed text-white top-0 w-[90%] max-w-[315px] h-[85vh] mt-[80px] bg-gray-600 rounded-lg shadow-sm shadow-gray-500 flex flex-col items-center justify-around">
           <button
             className="ml-auto mr-[20px] mt-[5px] transform scale-150"
             onClick={() => {

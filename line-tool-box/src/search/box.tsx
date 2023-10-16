@@ -14,16 +14,16 @@ export default function Box(props: ResultBox) {
   return (
     <div
       onClick={() => props.showDetails(props)}
-      className="w-full h-[75px] my-2 bg-gray-700 flex items-center"
+      className="w-full opacity-[0.85] h-[75px] my-2 bg-gray-700 flex items-center rounded-lg"
     >
       <img
         src={`https://obs.line-scdn.net/${props.square.profileImageObsHash}/preview.100x100`}
         alt={props.square.name}
         width={60}
         height={60}
-        className="rounded-full ml-3"
+        className="rounded-full ml-3 opacity-[1]"
       />
-      <div className="flex flex-col ml-3">
+      <div className="flex flex-col ml-3 text-white opacity-[1]">
         <p className="font-bold text-md">
           {props.square.name.length > max
             ? props.square.name.slice(0, max) + ".."
@@ -36,7 +36,7 @@ export default function Box(props: ResultBox) {
               : props.square.desc}{" "}
           </p>
         </p>
-        <span className="text-xs mt-1 font-bold">{props.memberCount}人 ・ {"アクティブ度: " + props.postCount + "%"}</span>
+        <span className="text-xs mt-1 font-bold opacity-[1]">{props.memberCount}人 ・ {"アクティブ度: " + props.postCount + "%"}</span>
       </div>
     </div>
   );
