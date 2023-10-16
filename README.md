@@ -1,8 +1,12 @@
 LINEで使えるWebツール集
 自己責任です。　
-旧: https://line.naver.jp/R/app/2000174578-VrlmbbrB   
+旧: https://line.naver.jp/R/app/2000174578-VrlmbbrB  
+
 新: https://line.naver.jp/R/app/2001110580-p8w3dBZq   
+
 直: https://line-tool.ame-x.net
+
+自作検索サイト: https://line-tool.ame-x.net/search
 
 - 予定
 ```yaml
