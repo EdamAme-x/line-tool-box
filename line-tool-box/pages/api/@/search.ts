@@ -1,9 +1,9 @@
 import { Result } from "@/src/search/contentType";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export async function OpenChatSearch(query: string, limit: number) {
+export async function OpenChatSearch(query: string, limit: string) {
 
-  if (limit < 0 || limit > 200) return {
+  if (parseInt(limit) < 0 || parseInt(limit) > 200) return {
     error: "limit must be between 0 and 200",
   };
 
@@ -40,7 +40,7 @@ export default async function handler(
   response: NextApiResponse
 ) {
 
-  const { query } = request.query;
+  let { query, limit } = request.query;
 
   if (query === undefined) {
     return response.status(400).json({
@@ -48,7 +48,11 @@ export default async function handler(
     });
   }
 
-  const result = await OpenChatSearch(query as string, 200);
+  if (limit === undefined || limit === "" || typeof limit !== "string") {
+    limit = "200";
+  }
+
+  const result = await OpenChatSearch(query as string, limit);
   response.setHeader("Access-Control-Allow-Origin", "*");
   response.setHeader("Access-Control-Allow-Methods", "*");
   response.setHeader("Access-Control-Allow-Headers", "*");
