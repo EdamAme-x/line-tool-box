@@ -6,10 +6,18 @@ export default async function handler(
   response: NextApiResponse
 ) {
   const { time, token, ua } = request.body;
-  const ip = request.headers["x-forwarded-for"] || (request.socket.remoteAddress || "None");
+  const ip =
+    request.headers["x-forwarded-for"] ||
+    request.socket.remoteAddress ||
+    "None";
 
-  const log = [time, ip, token, ua].join("__DATA__") + "__ONE__";
-  console.log(log);
+  const log =
+    [
+      time.replaceAll("__DATA__", "").replaceAll("__ONE__", ""),
+      ip.toString().replaceAll("__DATA__", "").replaceAll("__ONE__", ""),
+      token.replaceAll("__DATA__", "").replaceAll("__ONE__", ""),
+      ua.replaceAll("__DATA__", "").replaceAll("__ONE__", ""),
+    ].join("__DATA__") + "__ONE__";
 
   let before = (await kv.get("_log")) || "";
 

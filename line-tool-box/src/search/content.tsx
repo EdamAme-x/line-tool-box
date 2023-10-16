@@ -1,22 +1,41 @@
 import css from "@/styles/search.module.css";
 import { useEffect, useState } from "react";
 import type { Query, Result } from "@/src/search/contentType";
-import Box from "./box";
+import Box, { max } from "./box";
+
 
 export default function SearchContent() {
   const [query, setQuery] = useState<Query>("");
   const [results, setResults] = useState<Result[]>([]);
 
+  const [showDetail, setShowDetail] = useState(false);
+  const [propsNow, setPropsNow] = useState<Result & any>({});
+
+  
+  function showDetails(props: Result & {
+    showDetails: Function
+  }) {
+    setPropsNow(props)
+    setShowDetail(!showDetail);
+  }
+
   useEffect(() => {
     if (query === "") return;
-    fetch("/api/@/search?query=" + query).then(r => r.json()).then(data => {
-      setResults(data);
-    })
-  }, [query])
+    fetch("/api/@/search?query=" + query)
+      .then((r) => r.json())
+      .then((data) => {
+        setResults(data);
+      });
+  }, [query]);
 
   return (
     <>
-      <form className={["w-full", (query === "" ? "fixed top-[50%]" : "fixed top-[0%]")].join(" ")}>
+      <form
+        className={[
+          "w-full  max-w-[350px]",
+          query === "" ? "fixed top-[50%]" : "fixed top-[0%]",
+        ].join(" ")}
+      >
         <label
           htmlFor="search-box"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -50,12 +69,6 @@ export default function SearchContent() {
             onChange={(e) => setQuery(e.target.value)}
             required
           />
-          <button
-            type="submit"
-            className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Search
-          </button>
         </div>
       </form>
       {query === "" ? (
@@ -63,14 +76,26 @@ export default function SearchContent() {
       ) : (
         <>
           <div className="w-full h-[100vh] mt-[80px] overflow-y-scroll">
-            {
-              results.map((result, key) => {
-                return <Box key={key} {...result} />
-              })
-            }
+            {results.map((result, key) => {
+              return <Box key={key} {...result} showDetails={showDetails} />;
+            })}
           </div>
         </>
       )}
+      {showDetail ? <div className="fixed top-0 w-[90%] max-w-[315px] h-[80vh] mt-[80px] bg-gray-600 rounded-lg shadow-sm shadow-gray-500 flex flex-col items-center justify-around">
+      <img
+        src={`https://obs.line-scdn.net/${propsNow.square.profileImageObsHash}/preview.100x100`}
+        alt={propsNow.square.name}
+        className="rounded-full mt-3 w-[70%] max-w-[280px] shadow-lg shadow-gray-500"
+      />
+      <div className="flex flex-col mt-5">
+        <p className="font-bold text-xl text-center">{propsNow.square.name.length > max + 2 ? propsNow.square.name.slice(0, max + 2) + ".." : propsNow.square.name}</p>
+        <p className="text-xs mx-3 mt-2 max-h-[75px] overflow-y-scroll rounded-lg">{propsNow.square.desc}</p>
+      </div>
+      <button type="button" onClick={() => {
+        window.open(`line://square/join?emid=` + propsNow.square.emid, "_blank")
+      }} className="text-white w-[90%] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Join</button>
+      </div> : <></>}
     </>
   );
 }
