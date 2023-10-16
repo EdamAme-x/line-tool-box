@@ -1,3 +1,4 @@
+import { calcActive } from "./calcActive";
 import { Result } from "./contentType";
 
 export const max = 13;
@@ -36,7 +37,7 @@ export default function Box(props: ResultBox) {
               : props.square.desc}{" "}
           </p>
         </p>
-        <span className="text-xs mt-1 font-bold opacity-[1]">{props.memberCount}人 ・ {"アクティブ度: " + props.postCount + "%"}</span>
+        <span className="text-xs mt-1 font-bold opacity-[1]">{props.memberCount}人 ・ {"アクティブ度: " + calcActive(props.postCount, props.memberCount) + "%"}</span>
       </div>
     </div>
   );
