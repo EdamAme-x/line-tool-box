@@ -1,3 +1,4 @@
+import { Result } from "@/src/search/contentType";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export async function OpenChatSearch(query: string, limit: number) {
@@ -52,5 +53,5 @@ export default async function handler(
   response.setHeader("Access-Control-Allow-Methods", "*");
   response.setHeader("Access-Control-Allow-Headers", "*");
 
-  return response.status(200).json(result.squares);
+  return response.status(200).json(result.squares as Result[]);
 }

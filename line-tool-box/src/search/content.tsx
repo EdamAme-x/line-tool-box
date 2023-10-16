@@ -1,14 +1,22 @@
 import css from "@/styles/search.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Query, Result } from "@/src/search/contentType";
+import Box from "./box";
 
 export default function SearchContent() {
   const [query, setQuery] = useState<Query>("");
   const [results, setResults] = useState<Result[]>([]);
 
+  useEffect(() => {
+    if (query === "") return;
+    fetch("/api/@/search?query=" + query).then(r => r.json()).then(data => {
+      setResults(data);
+    })
+  }, [query])
+
   return (
     <>
-      <form className="w-full transition duration-150">
+      <form className={["w-full", (query === "" ? "fixed top-[50%]" : "fixed top-[0%]")].join(" ")}>
         <label
           htmlFor="search-box"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -54,7 +62,13 @@ export default function SearchContent() {
         <></>
       ) : (
         <>
-          <p>{query}</p>
+          <div className="w-full h-[100vh] mt-[80px] overflow-y-scroll">
+            {
+              results.map((result, key) => {
+                return <Box key={key} {...result} />
+              })
+            }
+          </div>
         </>
       )}
     </>

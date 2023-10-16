@@ -28,10 +28,10 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
   background: #f0f0f0;
-  border-radius: 2.5px;
+  border-radius: 4.5px;
 }
