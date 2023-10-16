@@ -39,6 +39,11 @@ export default function SearchContent() {
           "w-full  max-w-[350px]",
           query === "" ? "fixed top-[50%]" : "fixed top-[0%]",
         ].join(" ")}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+          }
+        }}
       >
         <label
           htmlFor="search-box"
