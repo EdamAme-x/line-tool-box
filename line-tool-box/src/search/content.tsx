@@ -111,7 +111,7 @@ export default function SearchContent() {
                 ? propsNow.square.name.slice(0, max + 2) + ".."
                 : propsNow.square.name}
             </p>
-            <p className="text-xs mx-3 mt-2 max-h-[100px] overflow-y-scroll rounded-lg word-wrap">
+            <p className="text-xs mx-3 my-2 max-h-[100px] overflow-y-scroll rounded-lg word-wrap">
               {propsNow.square.desc}
             </p>
           </div>
