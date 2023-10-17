@@ -62,6 +62,10 @@ export default function SearchContent() {
             e.preventDefault();
           }
         }}
+        style={{
+            transition: "0.5s",
+            zIndex: "999"
+        }}
       >
         <label
           htmlFor="search-box"
