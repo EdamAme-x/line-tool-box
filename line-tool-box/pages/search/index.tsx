@@ -9,6 +9,8 @@ export default function Search() {
     <>
       <Helmet>
         <title>OpenChat PowerSearch</title>
+        <meta name="preconnect" content="https://obs.line-scdn.net" />
+        <meta name="prefetch" content="https://obs.line-scdn.net" />
       </Helmet>
       <div
         className="font-mono font-bold w-[100vw] h-[100vh] bg-gray-800 flex justify-center items-center"
