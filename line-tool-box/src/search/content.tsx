@@ -26,7 +26,7 @@ export default function SearchContent() {
   useEffect(() => {
     if (query === "") return;
     const timeout = setTimeout(() => {
-      fetch("/api/@/search?query=" + query)
+      fetch("/api/@/search?query=" + query + "&limit=50")
         .then((r) => r.json())
         .then((data) => {
           setResults(data);
