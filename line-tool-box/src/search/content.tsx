@@ -2,7 +2,7 @@ import css from "@/styles/search.module.css";
 import { useEffect, useState } from "react";
 import type { Query, Result } from "@/src/search/contentType";
 import Box, { max } from "./box";
-import { copyText } from "@/utils/sub/copyText"
+import { copyText } from "@/utils/sub/copyText";
 
 export default function SearchContent() {
   const [query, setQuery] = useState<Query>("");
@@ -25,11 +25,17 @@ export default function SearchContent() {
 
   useEffect(() => {
     if (query === "") return;
-    fetch("/api/@/search?query=" + query)
-      .then((r) => r.json())
-      .then((data) => {
-        setResults(data);
-      });
+    const timeout = setTimeout(() => {
+      fetch("/api/@/search?query=" + query)
+        .then((r) => r.json())
+        .then((data) => {
+          setResults(data);
+        });
+    }, 750);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [query]);
 
   return (
@@ -76,7 +82,7 @@ export default function SearchContent() {
             placeholder="Search OpenChat"
             value={query}
             style={{
-                fontSize: "16px"
+              fontSize: "16px",
             }}
             onChange={(e) => setQuery(e.target.value)}
             required
@@ -99,8 +105,8 @@ export default function SearchContent() {
           <button
             className="ml-auto mr-[20px] mt-[5px] transform scale-150"
             onClick={() => {
-                setShowDetail(false)
-                setShowInfo(false)
+              setShowDetail(false);
+              setShowInfo(false);
             }}
           >
             X
@@ -125,7 +131,7 @@ export default function SearchContent() {
               onClick={() => {
                 const copyProps = Object.create(propsNow);
 
-                copyProps.square.desc = "省略"
+                copyProps.square.desc = "省略";
 
                 setPropsCopy(propsNow);
                 setShowInfo(!showInfo);
@@ -136,16 +142,48 @@ export default function SearchContent() {
             </button>
             {showInfo ? (
               <div className="fixed top-[10%] w-[80%] max-w-[300px] h-[75vh] bg-gray-500 rounded-lg flex flex-col items-center">
-                <p onClick={() => setShowInfo(false)} className="mt-2 transform scale-150">X</p>
-                <textarea readOnly className="my-2 bg-gray-900 h-[50%] w-[80%]" value={JSON.stringify(propsCopy, null, 2)}></textarea>
+                <p
+                  onClick={() => setShowInfo(false)}
+                  className="mt-2 transform scale-150"
+                >
+                  X
+                </p>
+                <textarea
+                  readOnly
+                  className="my-2 bg-gray-900 h-[50%] w-[80%]"
+                  value={JSON.stringify(propsCopy, null, 2)}
+                ></textarea>
                 <p>通報リンク</p>
-                <input readOnly className="mt- text-sm bg-black w-[80%]" value={"line://square/report?emid=" + propsNow.square.emid}/>
-                <button className="bg-green-600 mt-1 px-2 rounded mb-1" onClick={() => copyText("line://square/report?emid=" + propsNow.square.emid)}>Copy</button>
+                <input
+                  readOnly
+                  className="mt- text-sm bg-black w-[80%]"
+                  value={"line://square/report?emid=" + propsNow.square.emid}
+                />
+                <button
+                  className="bg-green-600 mt-1 px-2 rounded mb-1"
+                  onClick={() =>
+                    copyText(
+                      "line://square/report?emid=" + propsNow.square.emid
+                    )
+                  }
+                >
+                  Copy
+                </button>
                 <p>参加リンク</p>
-                <input readOnly className="mt-1 text-sm bg-black w-[80%]" value={"line://square/join?emid=" + propsNow.square.emid}/>
+                <input
+                  readOnly
+                  className="mt-1 text-sm bg-black w-[80%]"
+                  value={"line://square/join?emid=" + propsNow.square.emid}
+                />
                 <p>ブラウザ用リンク</p>
-                <input readOnly className="mt-1 text-sm bg-black w-[80%]" value={"https://square-api.line.me/smw/v2/static/sm/html/#/squareCover/" + propsNow.square.emid}/>
-                
+                <input
+                  readOnly
+                  className="mt-1 text-sm bg-black w-[80%]"
+                  value={
+                    "https://square-api.line.me/smw/v2/static/sm/html/#/squareCover/" +
+                    propsNow.square.emid
+                  }
+                />
               </div>
             ) : (
               <></>
