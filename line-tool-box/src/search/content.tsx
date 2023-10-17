@@ -13,6 +13,7 @@ export default function SearchContent() {
   const [propsCopy, setPropsCopy] = useState<Result & any>({});
 
   const [showInfo, setShowInfo] = useState(false);
+  const [addReload, setAddReload] = useState(false);
 
   function showDetails(
     props: Result & {
@@ -24,12 +25,14 @@ export default function SearchContent() {
   }
 
   useEffect(() => {
+    setAddReload(false)
     if (query === "") return;
     const timeout = setTimeout(() => {
       fetch("/api/@/search?query=" + query + "&limit=50")
         .then((r) => r.json())
         .then((data) => {
           setResults(data);
+          setAddReload(true)
         });
     }, 750);
 
@@ -37,6 +40,15 @@ export default function SearchContent() {
       clearTimeout(timeout);
     };
   }, [query]);
+
+  function addLoader() {
+    fetch("/api/@/search?query=" + query )
+        .then((r) => r.json())
+        .then((data) => {
+          setResults(data);
+          setAddReload(false)
+        });
+  }
 
   return (
     <>
@@ -97,6 +109,9 @@ export default function SearchContent() {
             {results.map((result, key) => {
               return <Box key={key} {...result} showDetails={showDetails} />;
             })}
+            {addReload ? <div onClick={() => addLoader()} className="w-full opacity-[0.85] h-[75px] my-2 bg-gray-700 flex flex-col justify-center items-center rounded-lg text-2xl text-white">
+              更に読み込む
+            </div> : <></>}
           </div>
         </>
       )}
