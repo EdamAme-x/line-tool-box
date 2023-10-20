@@ -9,6 +9,7 @@ export default function Token() {
     liff
       .init({
         liffId: getLiffId(),
+        withLoginOnExternalBrowser: true
       })
       .then(() => {
         if (liff.isInClient()) {
