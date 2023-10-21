@@ -4,17 +4,61 @@ import { useState, useEffect } from "react";
 import { sendLiffMessage } from "@/utils/sendMessage";
 import { copyText } from "@/utils/sub/copyText";
 
-
 function shuffleArray(array: string[]) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 
-    return array;
+  return array;
 }
 
-const temps = shuffleArray(["꙰⃟","ܑ", "ܰ", "ܱ", "ܲ", "ܳ", "ܴ", "ܵ", "ܶ", "ܷ", "ܸ", "ܹ", "ܺ", "ܻ", "ܼ", "ܽ", "ܾ", "ܿ", "݀", "݁", "݂", "݃", "݄", "݅", "݆", "݇", "݈", "݉", "݊", "ૺ", "ૻ", "ૼ", "ੈ", "଼", "ิ", "ุ", "ฺ", "้", "ີ", "ⷣ", "ⷵ", "ⷨ", "֦", "֘"]);
+const temps = shuffleArray([
+  "꙰⃟",
+  "ܑ",
+  "ܰ",
+  "ܱ",
+  "ܲ",
+  "ܳ",
+  "ܴ",
+  "ܵ",
+  "ܶ",
+  "ܷ",
+  "ܸ",
+  "ܹ",
+  "ܺ",
+  "ܻ",
+  "ܼ",
+  "ܽ",
+  "ܾ",
+  "ܿ",
+  "݀",
+  "݁",
+  "݂",
+  "݃",
+  "݄",
+  "݅",
+  "݆",
+  "݇",
+  "݈",
+  "݉",
+  "݊",
+  "ૺ",
+  "ૻ",
+  "ૼ",
+  "ੈ",
+  "଼",
+  "ิ",
+  "ุ",
+  "ฺ",
+  "้",
+  "ີ",
+  "ⷣ",
+  "ⷵ",
+  "ⷨ",
+  "֦",
+  "֘",
+]);
 
 export function Unicode({ packet }: Props) {
   if (typeof window === "undefined") {
@@ -27,6 +71,7 @@ export function Unicode({ packet }: Props) {
   const [canTemp, setCanTemp] = useState(false);
   const [resultText, setResultText] = useState("");
   const [lengths, setLengths] = useState(0);
+  const [maxSend, setMaxSend] = useState("Infinity");
 
   useEffect(() => {
     const y = (10000 - baseText.length) % unicoText.length;
@@ -73,7 +118,7 @@ export function Unicode({ packet }: Props) {
 
   const addUnicode = (text: string) => {
     setUnicoText(unicoText + text);
-  }
+  };
 
   return (
     <>
@@ -102,14 +147,13 @@ export function Unicode({ packet }: Props) {
                 placeholder="Unicode"
               />
               <br />
-              <button className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1 text-xs mt-1"
+              <button
+                className="w-[100%] bg-blue-500 hover:bg-blue-700 text-white p-1 text-xs mt-1"
                 onClick={() => setCanTemp(!canTemp)}
               >
                 Unicodeの文字一覧とテンプレートを見る
               </button>
-              {
-                canTemp ? <Templates add={addUnicode} /> : <></>
-              }
+              {canTemp ? <Templates add={addUnicode} /> : <></>}
             </div>
             <div className="mt-1">
               <div>
@@ -135,9 +179,27 @@ export function Unicode({ packet }: Props) {
                 onClick={() => {
                   const interval =
                     parseFloat(prompt("送信間隔 (秒)") || "1") * 1000;
-                  setInterval(() => {
+
+                  const maxNum = maxSend === "Infinity" || maxSend === "" ? 0 : parseInt(maxSend);
+
+                  if (typeof maxNum !== "number") {
+                    return alert("何かが違います。");
+                  }
+
+                  let sendNum = 0;
+
+                  const macroInterval = setInterval(() => {
+                    if (sendNum > maxNum && maxNum !== 0) {
+                      console.log("[STOP] Macro")
+                      clearInterval(macroInterval);
+                      return;
+                    }
+
                     allSend();
+                    sendNum = sendNum + 5;
                   }, interval);
+
+
                 }}
               >
                 マクロ送信
@@ -152,13 +214,29 @@ export function Unicode({ packet }: Props) {
               </button>
             </div>
             <div>
-              {canView ? (<>
-                <input value={resultText} readOnly placeholder="Result" />
-                <button onClick={() => copyText(resultText)} className="border-t border-r border-b border-l mx-1 mt-1 border-black p-1 px-2 min-w-[20px] rounded">Copy</button>
+              {canView ? (
+                <>
+                  <input value={resultText} readOnly placeholder="Result" />
+                  <button
+                    onClick={() => copyText(resultText)}
+                    className="border-t border-r border-b border-l mx-1 mt-1 border-black p-1 px-2 min-w-[20px] rounded"
+                  >
+                    Copy
+                  </button>
                 </>
               ) : (
                 <></>
               )}
+              <br />
+              <div>
+                <span>最大送信数 : </span>
+                <input
+                  value={maxSend}
+                  onChange={(e) => {
+                    setMaxSend(e.target.value)
+                  }}
+                />
+              </div>
               <br />
               文字数: {lengths} ✅ 正常です
             </div>
@@ -170,13 +248,20 @@ export function Unicode({ packet }: Props) {
 }
 
 function Templates({ add }: Props) {
-  return <div className="flex flex-wrap">
-    {
-        temps.map((c, i) => {
-            return <div key={i}>
-                <button onClick={() => add(c)} className="border-t border-r border-b border-l mx-1 mt-1 border-black p-1 px-2 min-w-[20px] rounded bg-white">{c}</button>
-            </div>
-        })
-    }
-  </div>;
+  return (
+    <div className="flex flex-wrap">
+      {temps.map((c, i) => {
+        return (
+          <div key={i}>
+            <button
+              onClick={() => add(c)}
+              className="border-t border-r border-b border-l mx-1 mt-1 border-black p-1 px-2 min-w-[20px] rounded bg-white"
+            >
+              {c}
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
