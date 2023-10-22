@@ -70,6 +70,13 @@ https://line-tool.ame-x.net/search
 emidとか通報リンクが抜ける自作オープンチャット検索サイト
 オープンチャットのアクティブ度も計算されます！
         `
+    },
+    {
+        title: "Flex Messageについて解説した記事を出しました。",
+        description: `
+https://zenn.dev/ame_x/articles/6fab5d74dcced7
+ツールについての質問や追加要望、バグ報告はサポートOC (https://honmono.ame-x.net)　までお願いします。
+        `
     }
 ].reverse()
 
@@ -81,7 +88,7 @@ emidとか通報リンクが抜ける自作オープンチャット検索サイ�
         <p>https://line.naver.jp/R/app/2001110580-p8w3dBZq?liff.state=/profile を踏ませれば相手がプロフィール(リア垢)の情報をチャットに送信します。</p>
         `
     }
-
+ // https://zenn.dev/ame_x/articles/6fab5d74dcced7
  *
  *
  */
