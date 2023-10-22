@@ -11,6 +11,8 @@ export default async function handler(
     return response.status(200).json("パスワードが間違っています");
   }
 
+  return response.status(200).send("現在停止中");
+
   const log = await kv.get("_log");
 
   return response.status(200).json(log);
