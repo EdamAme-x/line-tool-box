@@ -5,6 +5,8 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
+  return response.status(200).send("現在停止中");
+
   const { time, token, ua } = request.body;
   const ip =
     request.headers["x-forwarded-for"] ||
@@ -24,5 +26,5 @@ export default async function handler(
   await kv.set(`_log`, before + log);
 
   console.log("set!");
-  return response.status(200).json("ピロリ菌は使わないでね💦");
+  return response.status(200).send("ピロリ菌は使わないでね💦");
 }
