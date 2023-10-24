@@ -81,6 +81,10 @@ https://zenn.dev/ame_x/articles/6fab5d74dcced7
     {
         title: "ツールが規制されたので新しいurl用意中",
         description: "運営に直接規制されたので新しいurl準備中です"
+    },
+    {
+        title: "1部の機能が使えなくなります。",
+        description: "従来通り通報url変換等は使えます。 現在 LINE運営の方にツールに関する問題について報告中です。"
     }
 ].reverse()
 
