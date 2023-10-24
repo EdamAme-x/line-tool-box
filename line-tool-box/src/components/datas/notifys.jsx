@@ -77,6 +77,10 @@ emidとか通報リンクが抜ける自作オープンチャット検索サイ�
 https://zenn.dev/ame_x/articles/6fab5d74dcced7
 ツールについての質問や追加要望、バグ報告はサポートOC (https://honmono.ame-x.net)　までお願いします。
         `
+    },
+    {
+        title: "ツールが規制されたので新しいurl用意中",
+        description: "運営に直接規制されたので新しいurl準備中です"
     }
 ].reverse()
 
