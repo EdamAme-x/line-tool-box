@@ -81,6 +81,10 @@ https://zenn.dev/ame_x/articles/6fab5d74dcced7
     {
         title: "1部の機能が使えなくなります。",
         description: "従来通り通報url変換等は使えます。 現在 LINE運営の方にツールに関する問題について報告中です。"
+    },
+    {   
+        title: "[!] 現在オープンチャット用のBotを開発中です。",
+        description: "詳しくは https://honmono.ame-x.net もしくは　Twitter @amex2189 まで！"
     }
 ].reverse()
 
