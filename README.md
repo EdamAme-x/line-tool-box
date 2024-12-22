@@ -8,16 +8,6 @@ LINEで使えるWebツール集
 
 自作検索サイト: https://line-tool.ame-x.net/search
 
-- 予定
-```yaml
-- /token : token開示
-- /hijack/{id} : token短縮 => 乗っ取り
-- /flex/{flex} : flex短縮 => flex送信
-- /send/{text} : text短縮 => text送信
-- /trp/{anyone} : trap (ユニコード地雷等)
-```
-アイデア募集中
-
 ☑ LINE SendAPI  
 ☑ 高度なツール群  
 ☑ Tokenを利用した LINE初のツール
